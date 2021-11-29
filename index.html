@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/28801301c5.js" crossorigin="anonymous"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<link rel="stylesheet" href="styling.css">
+<script src="scripting.js"></script>
+
+<html>
+  <head>
+    <title>William Brayden Vaught</title>
+  </head>
+  <body id="everything" class="generic">
+    <div id="container" class="container mx-0" style="max-width: none;">
+
+
+      <!--FULL SCREEN NAVBAR-->
+      <div id="navbar" class="row width-full navbar modeNavbar sticky-top">
+        <div class="col-2 pe-0 ps-4">
+          <p id="name" style="display: none;" class="fs-6 mb-0">William Brayden Vaught</p>
+        </div>
+        <div class="col p-0">
+          <div class="row p-0">
+          <ul class="nav p-0 text-light">
+            <div class="col text-center">
+            <li>
+              <a class="nav-link navbarItem text-light" href="#">Home</a>
+            </li>
+            </div><div class="col text-center">
+            <li>
+              <a class="nav-link navbarItem text-light" href="#">Background</a>
+            </li>
+          </div><div class="col text-center">
+            <li>
+              <a class="nav-link navbarItem text-light" href="#education">Timeline</a>
+            </li>
+          </div><div class="col text-center">
+            <li>
+              <a class="nav-link navbarItem text-light" href="#skills">Education</a>
+            </li>
+          </div><div class="col text-center">
+            <li>
+              <a class="nav-link navbarItem text-light" href="#experience">Experience</a>
+            </li>
+          </div><div class="col text-center">
+            <li>
+              <a class="nav-link navbarItem text-light" href="#passions">Passions</a>
+            </li>
+          </div><div class="col text-center">
+            <li>
+              <a class="nav-link navbarItem text-light" href="#contact">Contact</a>
+            </li>
+            </div>
+          </ul>
+          </div>
+        </div>
+        <div class="col-2 text-end  ps-0 pe-4">
+          <button id="mode" type="button" class="btn btn-sm"></button>
+        </div>
+      </div>
+
+
+      <!--SMALL SCREEN NAVBAR-->
+      <!-- <div id="navbar" class="row width-full navbar sticky-top">
+        <div class="col-2">
+          <a class="ps-2" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" x="0px" y="0px" width="1.8rem"><path d="M92 14H8C4.68629 14 2 16.6863 2 20C2 23.3137 4.68629 26 8 26H92C95.3137 26 98 23.3137 98 20C98 16.6863 95.3137 14 92 14Z"/><path d="M92 44H8C4.68629 44 2 46.6863 2 50C2 53.3137 4.68629 56 8 56H92C95.3137 56 98 53.3137 98 50C98 46.6863 95.3137 44 92 44Z"/><path d="M8 74H92C95.3137 74 98 76.6863 98 80C98 83.3137 95.3137 86 92 86H8C4.68629 86 2 83.3137 2 80C2 76.6863 4.68629 74 8 74Z"/></svg>
+          </a>
+        </div>
+        <div class="col-8 text-center fs-4">
+          <p id="name" class="mb-0">William Brayden Vaught</p>
+          <button id="mode" type="button" class="btn btn-sm"></button>
+        </div>
+        <div class="col-2 text-end pe-2">
+          <a href="resume.pdf" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" x="0px" y="0px" width="2.6rem"><path d="M74,72a2,2,0,0,1-2,2H28a2,2,0,0,1-2-2V62H18V72A10,10,0,0,0,28,82H72A10,10,0,0,0,82,72V62H74Z"/><path d="M46,18V52.34l-8-8L32.34,50,47.17,64.83a4,4,0,0,0,5.66,0L67.66,50,62,44.34l-8,8V18Z"/></svg></a>
+        </div>
+        <div class="collapse" id="collapseExample">
+          <div class="card-body pb-0 ps-0 pe-0 pt-2">
+            <ul>
+              <li class="nav-item pe-4">
+                <a class="nav-link active fw-bold fs-5 pb-0 pt-1" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item px-4">
+                <a class="nav-link navbarItem text-light" href="#education">Education</a>
+              </li>
+              <li class="nav-item px-4">
+                <a class="nav-link navbarItem text-light" href="#skills">Skills</a>
+              </li>
+              <li class="nav-item px-4">
+                <a class="nav-link navbarItem text-light" href="#experience">Experience</a>
+              </li>
+              <li class="nav-item px-4">
+                <a class="nav-link navbarItem text-light" href="#projects">Projects</a>
+              </li>
+              <li class="nav-item px-4">
+                <a class="nav-link navbarItem text-light" href="#passions">Passions</a>
+              </li>
+              <li class="nav-item ps-4">
+                <a class="nav-link navbarItem text-light" href="#contact">Contact Me</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div> -->
+
+
+
+
+
+      <!--HOME-->
+      <div class="row width-full generic">
+        <div class="col width-full">
+            <p id="timelineStart" class="text-center title pt-4 pb-2 mb-0">William Brayden Vaught</p>
+        </div>
+        <p class="text-center fs-3 pb-3">Computer Engineer | Theatrical Technician</p>
+      </div>
+      <div class="row pb-3 generic">
+        <div class="col-sm-2"></div>
+        <div class="col">
+          <div class="card mode shadow">
+            <div class="card-body mode" style="border-radius: 0.45rem;">
+              <div class="row g-0 m-0">
+                <div class="col-sm-3 pe-0 me-0">
+                  <img src="Images/ProfilePicture.jpg" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;">
+                </div>
+                <div class="col-sm-9 ps-0 ms-0">
+                  <div class="card mode pe-0" style="height: 100%;">
+                    <div class="card-body pt-1 d-flex align-items-center">
+                      <p class="fs-4">
+                        Explore this website to learn more about my technical and professional experiences and how they can contribute to your software team. To navigate you can use one of the links below, or you can just start scrolling.
+                      </p>
+                  </div>
+                    <a id="education" style="visibility: hidden;"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-2"></div>
+    </div>
+    <div class="row generic pt-3">
+      <div class="col-2"></div>
+      <div class="col text-center">
+      <a href="resume.pdf" target="_blank" rel="noopener noreferrer"><button type="button" class="btn btn-outline-light m-3">View Resume</button></a>
+      <a href="#background"><button type="button" class="btn btn-outline-light m-3">About Me</button></a>
+      <a href="#experience"><button type="button" class="btn btn-outline-light m-3">Explore Experience</button></a>
+      <a href="#experience"><button type="button" class="btn btn-outline-light ms-3">Contact Me</button></a>
+      </div>
+      <div class="col-2"></div>
+    </div>
+      <div class="row text-center generic">
+      <p class="text-center pt-4 mb-0 fs-4" style="font-family: sans-serif;">Hope for the best. Expect the worst. Life's a play. We're unrehearsed.</p>
+      <p class="text-center pt-0 pb-5 fs-5" >-Mel Brooks</p>
+      <hr style="width:75%; margin:auto; border-radius: 50%;">
+      </div>
+
+
+
+
+
+      <!--BACKGROUND-->
+<div class="row generic py-3">
+  <div class="col-2"></div>
+  <div class="col" style="line-height:1.7;">
+    <p class="fs-1" style="text-indent: -7%;">Background</p>
+    <div class="card shadow mode">
+      <div class="card-body mode py-4">
+        <div class="row pb-3">
+        <div class="col-sm-4"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/stringingGuitar.jpg" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></div>
+        <div class="col-sm-4"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/lighting.png" alt="Profile Picture" width="100%" style=" border-radius: 0.30rem;"></div></div>
+        <div class="col-sm-4"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/FirstDay.JPG" alt="Profile Picture" width="100%" style=" border-radius: 0.30rem;"></div></div>
+        </div>
+        <div style="text-indent: 10%">
+    <p class="fs-5 px-3">Ever since I can remember I’ve been obsessed with two things, theatre and computers. In elementary school I would learn basic coding on the drag-and-drop coding websites and act in the school’s production of Peter Pan.</p>
+    <p class="fs-5 px-3">As I matured into a teenager I merged my computer science and artistic appreciations by joining the technical side of theatre programming lighting instruments, and learning how to manage large-scale power systems in the context of theatrical systems.</p>
+    <p class="fs-5 px-3">Throughout my high school career I diversified my computer science experience by learning how to program Microsoft Office macros, websites, and object-oriented programs in Java. Concurrently, I developed my electrical experience with lighting and scenery systems with wireless communication protocols built into wood, metal, and plastic set pieces.</p>
+    <p class="fs-5 px-3">Throughout all of this experience I biggest thing I learned is how insecure our systems are. Whether its a website or a lighting instrument, almost everything in our modern world is vulnerable to cyber attacks. At Georgia Institute of Technology, I am studying the cybersecurity thread of computer engineering to better understand the vulnerabilities in our digital devices. I’m actively seeking a co-op in the cybersecurity industry to better secure our digital world.</p>
+  </div>
+  </div>
+  </div>
+  </div>
+  <div class="col-2"></div>
+</div>
+
+    <!--TIMELINE-->  
+    <div class="row generic pt-5">
+      <hr style="width:75%; margin:auto; border-radius: 50%;" class="mt-3">
+    </div>
+    <section id="timeline" class="timeline">
+      <div class="container">
+        <div class="timeline__wrapper">
+          <div id="timelineLine"></div>
+          <div class="py-5"></div>
+          <div class="timeline__block">
+          <div class="timeline__block__head">
+            <h1 class="timeline__block__title">Timeline</h1>
+          </div>
+          </div>
+          <div class="py-5"></div>
+          <div class="py-5"></div>
+          <div class="py-5"></div>
+          <div class="timeline__block">
+            <div class="timeline__block__bullet-point">
+              <span class="timeline__block__circle"></span>
+            </div>
+            <div class="timeline__block__head">
+              <h1 class="timeline__block__title">August 2003</h1>
+            </div>
+            <div class="timeline__block__body">
+              <p class="timeline__block__text">Born August 30th, 2003</p>
+            </div>
+            </div>        
+            <div class="py-5"></div>  
+            <div class="timeline__block">
+              <div class="timeline__block__bullet-point">
+                <span class="timeline__block__circle"></span>
+              </div>
+            <div class="timeline__block__head">
+              <h1 class="timeline__block__title">Summer 2019</h1>
+            </div>
+            <div class="timeline__block__body">
+              <p class="timeline__block__text">Interned at Compliance Solutions as a Business Efficency Programmer writing scripts to automate repetitive tasks in Microsoft Office.</p>
+            </div>
+            </div>
+            <div class="py-5"></div>
+            <div class="timeline__block">
+              <div class="timeline__block__bullet-point">
+                <span class="timeline__block__circle"></span>
+              </div>
+            <div class="timeline__block__head">
+              <h1 class="timeline__block__title">Summer 2021</h1>
+            </div>
+            <div class="timeline__block__body">
+              <p class="timeline__block__text">Interned at ServTrax, Inc. as a Web Developer redesiging webpages with a modern UI and more robust database interactions.</p>
+              </div>
+              </div>
+              <div class="py-5"></div>
+              <div class="timeline__block">
+                <div class="timeline__block__bullet-point">
+                  <span class="timeline__block__circle"></span>
+                </div>
+              <div class="timeline__block__head">
+                <h1 class="timeline__block__title">August 2021</h1>
+              </div>
+              <div class="timeline__block__body">
+                <p class="timeline__block__text">Started school at The Georiga Insititute of Technology studying Computer Engineering.</p>
+              </div>
+              </div>
+              <div class="py-5"></div>
+              <div class="py-5"></div>
+              <div class="py-5"></div>
+              <div class="timeline__block">
+              <div class="timeline__block__head">
+                <h1 class="timeline__block__title">The Future</h1>
+              </div>
+              </div>
+              <div class="py-5"></div>
+              <div class="py-5"></div>
+              <div class="py-5"></div>
+              <div class="timeline__block">
+                <div class="timeline__block__bullet-point">
+                  <span class="timeline__block__circle"></span>
+                </div>
+              <div class="timeline__block__head">
+                <h1 class="timeline__block__title">Summer 2022</h1>
+              </div>
+              <div class="timeline__block__body">
+                <p class="timeline__block__text">Studying Abroad through the Oxford Program traveling around Europe and learning ethics at Oxford University.</p>
+              </div>
+              </div>
+              <div class="py-5"></div>      
+              <div class="timeline__block">
+                <div class="timeline__block__bullet-point">
+                  <span class="timeline__block__circle"></span>
+                </div>
+              <div class="timeline__block__head">
+                <h1 class="timeline__block__title">Fall 2022</h1>
+              </div>
+              <div class="timeline__block__body">
+                <p class="timeline__block__text">Beginning a co-op in the cyberscecurity industry focusing on protecting private data and securing intenet connections.</p>
+              </div>
+              </div>
+              <div class="py-5"></div>      
+              <div class="timeline__block">
+                <div class="timeline__block__bullet-point">
+                  <span class="timeline__block__circle"></span>
+                </div>
+              <div class="timeline__block__head">
+                <h1 class="timeline__block__title">Spring 2024</h1>
+              </div>
+              <div class="timeline__block__body">
+                <p class="timeline__block__text">Finishing a co-op in the cyberscecurity industry with the ability to understand, prevent, and fix cybersecurity flaws in computers.</p>
+              </div>
+              </div>
+              <div class="py-5"></div>      
+              <div class="timeline__block">
+                <div class="timeline__block__bullet-point">
+                  <span class="timeline__block__circle"></span>
+                </div>
+              <div class="timeline__block__head">
+                <h1 class="timeline__block__title">May 2025</h1>
+              </div>
+              <div class="timeline__block__body">
+                <p class="timeline__block__text">Graduating from The Georiga Institute of Technology as a Bachelor of Science in Computer Engineering.</p>
+              </div>
+              </div>
+              <div class="py-5"></div>      
+              <div class="timeline__block">
+                <div class="timeline__block__bullet-point">
+                  <span class="timeline__block__circle"></span>
+                </div>
+              <div class="timeline__block__head">
+                <h1 class="timeline__block__title">June 2025</h1>
+              </div>
+              <div class="timeline__block__body">
+                <p class="timeline__block__text">Working full time as a cybersecurity analyst reverse engineering malware to better secure consumer and commerical devices.</p>
+              </div>
+              </div>
+              <div class="py-5"></div>      
+              <div class="timeline__block">
+                <div class="timeline__block__bullet-point">
+                  <span class="timeline__block__circle"></span>
+                </div>
+              <div class="timeline__block__head">
+                <h1 class="timeline__block__title">Circa 2030</h1>
+              </div>
+              <div class="timeline__block__body">
+                <p class="timeline__block__text">Managing security at a company specializing in data managment and cloud computing.</p>
+              </div>
+              </div>
+          <div class="py-5"></div>  
+          <div class="py-5"></div>  
+              </div> 
+          <!-- <div class="timeline__hider"></div>
+        </div> -->
+      </div>
+    </section>
+<div class="py-4"></div>
+
+
+
+
+
+
+
+    <!--EDUCATION-->
+    <div class = "row">
+<hr style="margin: auto; width: 85%">
+    </div>
+    <div class="row generic pt-3">
+      <div class="col-sm-1"></div>
+      <div class="col">
+      <p class="fs-1">Education</p>
+        <div class="card mode shadow">
+          <div class="card-body mode" style="max-height: fit-content;">
+            <div class="row">
+              <div class="col-8 ps-3" style="border: none;">
+                <p class="fs-2 fw-bold mb-0">Georgia Institute of Technology&nbsp|<span class="fs-5 fw-lighter">&nbspGraduation: May 2025</span></p>
+                <p class="ps-3 pt-2 mb-0">Bachelor of Science in Computer Engineering GPA NA/4.00</p>
+                <p class="ps-3"> Threads in <a class="gatechLink" target="_blank" rel="noopener noreferrer" href="https://www.ece.gatech.edu/cybersecurity-thread">Cybersecurity</a> and <a class="gatechLink" target="_blank" rel="noopener noreferrer" href="https://www.ece.gatech.edu/distributed-system-software-design">Distributed System & Software Design</a></p>
+              </div>
+              <div class="col-sm">
+                <img src="Images/TechTower.jpg" alt="Tech Tower" class="img-fluid" width="100%" style="border-radius: 0.25rem;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+    <div  class="row pt-3 text-center generic">
+      <p class="fs-2 pt-4 pb-3">Relevent Coursework</p>
+      <div class="col d-flex justify-content-center">
+      <div class="card mb-3 me-2 mode shadow" style="width: 25rem;">
+        <div class="card-body mode">
+          <h5 class="card-title fs-4">Digital System Design</h5>
+          <hr class="pb=1 mt-0 mb-1">
+          <p> Produced desired logic functions in truth-table, schematic, and algebraic forms. Understand physical implementations of digital logic. Used multiplexers and encoders to build larger digital devices. Understand digital storage and sequential logic and be able to create finite state machines. Created simple programs in assembly code.
+            </p>
+        </div>
+      </div>
+      <div class="card mode mb-3 ms-2 shadow" style="width: 25rem;">
+        <div class="card-body mode">
+          <h5 class="card-title fs-4">Object-Oriented Programming</h5>
+          <hr class="pb=1 mt-0 mb-1">
+          <p>
+            Utilize object-oriented languages features like statically typed variables; encapsulation, inheritance, and polymorphism; event-driven programming principles as they apply to graphical user interface (GUI) programs; recursive definitions of algorithms and data structures; “Big-O” run time analysis of algorithms; basic algorithms for searching and sorting; and basic data structures.          </p>
+            <a id="skills" style="visibility: hidden;"></a>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="row text-center pt-5 generic">
+      <hr style="width:90%; margin:auto; border-radius: 50%;">
+    </div>
+
+
+    <!--SKILLS-->
+    <div class="row pt-4 generic">
+      <div class="col">
+      <p class="fs-1 ps-5 ms-5">Skills</p>
+      <div class="col d-flex justify-content-center">
+        <div class="card mode mb-3 mx-3 shadow" style="width: 25rem; min-width: 16rem;">
+          <div class="card-body mode text-center">
+            <h5 class="card-title fs-4">Programming Languages</h5>
+            <hr class="pb=1 mt-0 mb-1">
+            <p class="pt-2">
+              I am proficient in C# and Java with 3 years of programming experience. I am also proficient in HTML, CSS, and Javascript with 5 years of experience and a web development internship. Intermediate with database programming through SQL. Familiar with Bootstrap and JQuery libraries through their CDN implementation.</p>
+          </div>
+        </div>
+        <div class="card mode mb-3 mx-3 shadow" style="width: 25rem; min-width: 16rem;">
+          <div class="card-body mode">
+            <h5 class="card-title fs-4 text-center">Electrical Engineering</h5>
+            <hr class="pb=1 mt-0 mb-1">
+            <p class="pt-2 text-center">
+              I am proficient in prototyping, designing basic circuitry and state diagrams, and electronic debugging. I have experience through 4 years of personal projects and technical theatre where my main focus was addressing and fixing hardware problems on wireless lighting equipment with two-way addressable communication.
+            </p>
+            <a id="experience" style="visibility: hidden;"></a>
+          </div>
+        </div>
+        <div class="card mode mb-3 mx-3 shadow" style="width: 25rem; min-width: 16rem;">
+          <div class="card-body mode">
+            <h5 class="card-title fs-4 text-center">Engineering Tools</h5>
+            <hr class="pb=1 mt-0 mb-1">
+            <p class="pt-2 text-center">
+              I am proficient with several mechanical and electronic tools due to my experience training in Georgia Tech makerspaces and my 6 years of technical theatre experience building sets and wiring lighting systems. I am proficient in soldering, Oscilloscope usage, and using basic machinery such as a laser cutter, drill press, and several saws.
+              </p>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+      <div class="row pt-2 generic d-flex justify-content-center">
+        <div class="card mode mt-3 mx-3 shadow" style="width: 25rem; min-width: 16rem;">
+          <div class="card-body mode text-center">
+            <h5 class="card-title fs-4">Leadership</h5>
+            <hr class="pb=1 mt-0 mb-1">
+            <p class="pt-2">
+              With three years of experience in Student Council as Vice President of Special Events and President, I am proficient in public speaking as well as organizing large-scale events in a managerial role with delegation and communication as the basis for organization.</div>
+        </div>
+        <div class="card mode mt-3 mx-3 shadow" style="width: 25rem; min-width: 16rem;">
+          <div class="card-body mode">
+            <h5 class="card-title fs-4 text-center">Collaboration</h5>
+            <hr class="pb=1 mt-0 mb-1">
+            <p class="pt-2 text-center">
+              I have gained valuable collaborative experience through technical theatre that I am currently compounding on at Georgia Tech. Through DramaTech (Georgia Tech’s student run theatre) I am learning to work with people of many different backgrounds in many different departments to create one cohesive product.              </p>
+          </div>
+        </div>
+    </div>
+    <div class="row text-center pt-5 generic">
+      <hr style="width:85%; margin:auto; border-radius: 50%;">
+    </div>   
+    
+    
+
+
+
+
+    <!--EXPERIENCE-->
+    <div class="row pt-4 generic">
+      <div class="col">
+      <p class="fs-1 ps-5 ms-5 my-0">Experience</p>
+      </div>
+      </div>
+      <div  class="row text-center generic">
+        <p class="fs-2 pb-3">Professional Experience</p>
+        <div class="col d-flex justify-content-center">
+        <div class="card mb-3 mx-3 mode shadow" style="width: 35rem;">
+          <div class="card-body mode">
+            <h5 class="card-title fs-3" style="text-decoration: none;">ServTrax, Inc.</h5>
+            <hr class="my-3">
+            <p class="text-start mb-0 fs-5"><b>Role:</b> Web Development Intern</p>
+            <p class="text-start mb-0 fs-5"><b>Employment:</b> May 2021 - August 2021</p>
+            <hr class="my-3">
+            <p class="fs-5">Redesigned existing webpages and created new webpages utilizing Bootstrap, Select2, and JQuery libraries. Also utilized SQL to manage database systems for AJAX data fetching. Learned to work with code in Azure DevOps and industry standard commenting and check-in practices.</p>
+          </div>
+        </div>
+        <div class="card mb-3 mx-3 mode shadow" style="width: 35rem;">
+          <div class="card-body mode">
+            <h5 class="card-title fs-3" style="text-decoration: none;">Compliance Solutions</h5>
+            <hr class="my-3">
+            <p class="text-start mb-0 fs-5"><b>Role:</b> Buisness Automation Intern</p>
+            <p class="text-start mb-0 fs-5"><b>Employment:</b> May 2019 - August 2019</p>
+            <hr class="my-3">
+            <p class="fs-5">Reviewed existing workflows in Microsoft Office and developed Visual Basic for Applications (VBA) macros to automate repetitive tasks to increase overall efficiency by 60%. Became certified in Microsoft Word and PowerPoint.</p>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div  class="row text-center generic">
+        <p class="fs-2 pt-5 pb-3">Academic Experience</p>
+        <div class="col d-flex justify-content-center">
+        <div class="card mb-3 mx-3 mode shadow" style="width: 35rem;">
+          <div class="card-body mode">
+            <h5 class="card-title fs-3" style="text-decoration: none;">Digital Hourglass</h5>
+            <hr class="my-3">
+            <p>Learned basics of soldering and circuitry through the development of a digital hourglass that  utilizes a gyroscope integrated circuit to determine orientation.</p>
+            <div class="row pb-3">
+              <div class="col-sm-4"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/Hourglass1.JPG" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></div>
+              <div class="col-sm-4"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/Hourglass2.JPG" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></div>
+              <div class="col-sm-4"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/Hourglass3.JPG" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></div>
+              </div>
+            </div>
+        </div>
+        <div class="card mb-3 mx-3 mode shadow" style="width: 35rem;">
+          <div class="card-body mode">
+            <h5 class="card-title fs-3" style="text-decoration: none;">Finite State Machine</h5>
+            <hr class="my-3">
+            <p>Learned how to create a state diagram from a list of constraints and then utilize that state diagram to create digital logic to be implemented in physical hardware.</p>
+            <div class="row pb-3">
+              <div class="col-sm-6"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/State1.png" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></div>
+              <div class="col-sm-6"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/State2.png" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></div>
+              </div><div class="row">
+              <div class="col-sm-6"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/State3.png" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></div>
+              <div class="col-sm-6"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/State4.png" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></div>
+              </div>
+            </div>
+        </div>
+        </div>
+      </div>
+
+    <!--PROJECTS-->
+    <div class="row generic">
+      <div class="col-sm-1"></div>
+      <div class="col">
+      <p class="fs-2 pt-5 pb-3 text-center">Personal Projects</p>
+      <div class="card mb-3 mx-3 mode shadow">
+        <div class="card-body mode">
+          <h5 class="card-title fs-1 text-center pt-2 pb-0 mb-0" style="text-decoration: none;">Electric Skateboard</h5>
+          <hr class="my-3">
+          <p class="fs-5 p-3 pb-0" style="text-indent: 6%;">Georgia Tech has a beautiful 400 acre campus; however, whether it’s the windy weather or you are late to class, it’s vastness can be daunting. To solve this issue I designed an electric skateboard with 15 miles of range utilizing Samsung 25R 18650 batteries in a 10S2P configuration connected to two 150W motors built into the wheels of the skateboard for water-resistance. Additionally, the device charges utilizing usb-c power delivery protocols to ensure proper voltage. Overall, this project exposed me to more of the electrical side of computer engineering with batteries and motors, a topic normally overlooked when studying computer engineering.</p>
+          <div class="row pb-3">
+            <div class="col-sm-4"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/Skate3.png" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></div>
+            <div class="col-sm-4"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/Skate2.JPG" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;" title="test"></div></div>
+            <div class="col-sm-4"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/Skate1.JPG" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></div>  
+          </div>
+          </div>
+      </div>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+    <div class="row text-center pt-4 generic">
+      <hr style="width:90%; margin:auto; border-radius: 50%;">
+    </div>    
+    
+
+
+
+
+    <!--PASSIONS-->
+    <div class="row pt-4 pb-3 generic">
+      <div class="col">
+      <p class="fs-1 ps-5 ms-5 my-0">Passions</p>
+      </div>
+      </div>
+    <div class="row generic">
+      <div class="col-sm-1"></div>
+      <div class="col">
+      <div class="card mb-3 mx-3 mode shadow">
+        <div class="card-body mode">
+          <h5 class="card-title fs-1 text-center pt-2 pb-0 mb-0" style="text-decoration: none;">Technical Theatre</h5>
+          <hr class="my-3">
+          <p class="fs-3 text-center pt-3 pb-4 pb-0">Below are the posters for some of my most recent productions, to learn more about a specific production, click on the poster.</p>
+          <div class="row pb-3">
+            <div class="col-sm-4"><button class="p-0 mode" style="border:none; height:min-content;"type="button" data-bs-toggle="modal" data-bs-target="#LandIModal"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/LandI.jpg" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></button></div>
+            <div class="col-sm-4"><button class="p-0 mode" style="border:none; height:min-content;"type="button" data-bs-toggle="modal" data-bs-target="#cirque"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/CirqueAntanda.jpg" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;" title="test"></div></button></div>
+            <div class="col-sm-4"><button class="p-0 mode" style="border:none; height:min-content;"type="button" data-bs-toggle="modal" data-bs-target="#james"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/James.jpg" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></button></div>  
+          </div>
+          </div>
+      </div>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+    <div class="row text-center pt-3 generic">
+      <hr style="width:90%; margin:auto; border-radius: 50%;">
+    </div>    
+
+
+<!--Love and Information-->
+<div class="modal fade" id="LandIModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Love and Infomation by Caryl Churchill</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-3">
+        <p class="mb-0 fs-5"><b>Role:</b> Assistant Lighting Designer</p>
+        <p class="mb-0 fs-5"><b>Production Time:</b> September - November 2021</p>
+        <p class="fs-5"><b>Technical Challenge:</b> LED light walls.</p>
+        <img src="Images/lightWalls.JPG" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Cirque Antanda-->
+<div class="modal fade" id="cirque" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cirque Antanda</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-3">
+        <p class="mb-0 fs-5"><b>Role:</b> Stage Manager</p>
+        <p class="mb-0 fs-5"><b>Production Time:</b> April - May 2021</p>
+        <p class="fs-5"><b>Technical Challenge:</b> Bars Unit for Trapeze</p>
+        <img src="Images/lightWalls.JPG" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--James and the Giant Peach-->
+<div class="modal fade" id="james" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">James and the Giant Peach by Timothy Allen McDonald</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-3">
+        <p class="mb-0 fs-5"><b>Role:</b> Stage Manager</p>
+        <p class="mb-0 fs-5"><b>Production Time:</b> January - March 2021</p>
+        <p class="fs-5"><b>Technical Challenge:</b> Giant Spinning Peach</p>
+        <img src="Images/Peach.JPG" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+    <!--CONTACT ME-->
+    <div id="contactForm" class="row pt-4 generic shadow">
+      <div class="col-sm-2"></div>
+      <div class="col">
+      <p class="fs-1">Contact Me</p>
+        <div class="card mode shadow">
+          <div class="card-body mode p-4" style="max-height: fit-content;">
+                <div>
+    <form>
+      <div class="mb-3">
+        <label for="nameEmail" class="form-label text-start fs-5">Name</label>
+        <input type="text" class="form-control"  required id="nameEmail">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label text-start fs-5">Email Address</label>
+        <input type="email" class="form-control" required  id="email">
+      </div>
+      <div class="mb-3">
+        <label for="subject" class="form-label text-start fs-5">Subject</label>
+        <input type="text" class="form-control" required  id="subject">
+      </div>
+      <div class="mb-3">
+        <label for="emailBody" class="form-label text-start fs-5">Email Body</label>
+        <textarea type="text" class="form-control"  required id="emailBody" rows="5">Dear Brayden Vaught,
+        </textarea>
+      </div>
+      <div class="g-recaptcha pb-3" data-sitekey="6Ldj42YdAAAAAO1YI_-fs4cT7MZgeO4U-kxczr3S"></div>
+      <button id="submit" class="btn btn-primary" type="submit" value="submit" onclick="sendEmail(nameEmail.value, email.value, subject.value, emailBody.value)">Compose Email</button>
+    </form>
+    <div id="sendEmail"></div>
+    <script>
+    </script>
+  </div>  
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-2"></div>
+    </div>
+
+<div class="row generic py-5"></div>
+    <div id="footer" class="row pt-5 pb-4 darkModeNavbar" style="border-radius: 0%;">
+      <p class="ps-5">Copyright &#169 2021 Brayden Vaught - All Rights Reserved</p>
+    </div>
+    </div>
+  </body>
+</html>
