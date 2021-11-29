@@ -229,6 +229,22 @@
     }
   }
   
+  @media screen and (max-width: 1187px){
+    .smallScreen{
+      display: flex;
+    }
+    .bigScreen{
+      display: none;
+    }
+}
+@media screen and (min-width: 1187px){
+  .smallScreen{
+    display: none;
+  }
+  .bigScreen{
+    display: flex;
+  }
+}
   /* @media screen and (min-width: 800px) {
     .timeline__block__title {
       line-height: 0;

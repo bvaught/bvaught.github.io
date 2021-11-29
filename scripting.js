@@ -9,7 +9,7 @@ function checkVisible( elm, evalType ) {
 
     if (evalType === "visible") return ((y < (vpH + st)) && (y > (st - elementHeight)));
     if (evalType === "above") return ((y < (vpH + st)));
-    if (evalType === "stricklyAbove") return ((y < (st - elementHeight)));
+    if (evalType === "stricklyAbove") return ((y < (st - elementHeight+5)));
     }
     return(false)
 }
@@ -21,56 +21,21 @@ document.getElementById("sendIt").click();
   }
 }
 
-$( document ).ready(function() {
-const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-
-if (!prefersDarkScheme.matches) {
-    $("#timelineLine").addClass("timeline__progressbarLight");
-    $("#mode").text("Dark Mode").addClass("btn-dark");
-    $("#everything").removeClass("generic").addClass("lightGeneric");
-    $("#navbar").removeClass("darkModeNavbar").addClass("lightModeNavbar");
-    $("#footer").removeClass("darkModeNavbar").addClass("lightModeNavbar");
-    $("#navbar").find(".nav-link").removeClass("text-light").addClass("text-dark");
-    $("#navbar").find("svg").addClass("vectorLight");
-    $("#container").find( ".mode").removeClass("mode").addClass("lightMode");
-    $("#container").find( ".generic").removeClass("generic").addClass("lightGeneric");
-    $("#container").find( ".btn-outline-light").removeClass("btn-outline-light").addClass("btn-outline-dark");
-    $("#contactForm").find(".darkModeForm").removeClass("darkModeForm")
-}else{
-    $("#timelineLine").addClass("timeline__progressbarDark");
-    $("#mode").text("Light Mode").addClass("btn-light");
-    $("#everything").removeClass("generic").addClass("darkGeneric");
-    $("#container").find( ".mode").removeClass("mode").addClass("darkMode");
-    $("#container").find( ".generic").removeClass("generic").addClass("darkGeneric");
-    $("#navbar").removeClass("lightModeNavbar").addClass("darkModeNavbar");
-    $("#footer").removeClass("lightModeNavbar").addClass("darkModeNavbar");
-    $("#navbar").find(".nav-link").removeClass("text-dark").addClass("text-light");
-    $("#navbar").find("svg").addClass("vectorDark");
-    $("#contactForm").find(".form-control").addClass("darkModeForm");
-}
-
-    $( window ).scroll(function() {
-        if(checkVisible($('#timelineStart'), 'stricklyAbove')){
-          //$("#mode").fadeOut("fast", function(){
-          $( "#name" ).fadeIn( "slow");
-          //});
-        }else{
-          $( "#name" ).fadeOut( "fast", function(){
-          //$("#mode").fadeIn("fast");
-          });
-        }
-});
-
-$("#mode").click(function(){
+function darkMode(){
   if($("#everything").hasClass("darkGeneric")){
     $("#timelineLine").removeClass("timeline__progressbarDark").addClass("timeline__progressbarLight");
     $("#mode").text("Dark Mode").removeClass("btn-light").addClass("btn-dark");
+    $("#moon").removeClass("fa-sun").addClass("fa-moon");
+    $("hamburger").removeClass("darkMode").addClass("lightMode");
     $("#everything").toggleClass("darkGeneric");
     $("#everything").toggleClass("lightGeneric");
     $("#navbar").removeClass("darkModeNavbar").addClass("lightModeNavbar");
+    $("#navbar2").removeClass("darkModeNavbar").addClass("lightModeNavbar");
     $("#footer").removeClass("darkModeNavbar").addClass("lightModeNavbar");
     $("#navbar").find(".nav-link").removeClass("text-light").addClass("text-dark");
     $("#navbar").find("svg").removeClass("vectorDark").addClass("vectorLight");
+    $("#navbar2").find(".nav-link").removeClass("text-light").addClass("text-dark");
+    $("#navbar2").find("svg").removeClass("vectorDark").addClass("vectorLight");
     $("#container").find( ".darkMode").removeClass("darkMode").addClass("lightMode");
     $("#container").find( ".darkGeneric").removeClass("darkGeneric").addClass("lightGeneric");
     $("#container").find( ".btn-outline-light").removeClass("btn-outline-light").addClass("btn-outline-dark");
@@ -78,18 +43,211 @@ $("#mode").click(function(){
   }else{
     $("#timelineLine").removeClass("timeline__progressbarLight").addClass("timeline__progressbarDark");
     $("#mode").text("Light Mode").removeClass("btn-dark").addClass("btn-light");
+    $("#moon").removeClass("fa-moon").addClass("fa-sun");
+    $("hamburger").removeClass("lightMode").addClass("darkMode");
     $("#everything").toggleClass("darkGeneric");
     $("#everything").toggleClass("lightGeneric");
     $("#navbar").removeClass("lightModeNavbar").addClass("darkModeNavbar");
+    $("#navbar2").removeClass("lightModeNavbar").addClass("darkModeNavbar");
     $("#footer").removeClass("lightModeNavbar").addClass("darkModeNavbar");
     $("#navbar").find(".nav-link").removeClass("text-dark").addClass("text-light");
     $("#navbar").find("svg").removeClass("vectorLight").addClass("vectorDark");
+    $("#navbar2").find(".nav-link").removeClass("text-dark").addClass("text-light");
+    $("#navbar2").find("svg").removeClass("vectorLight").addClass("vectorDark");
     $("#container").find( ".lightMode").removeClass("lightMode").addClass("darkMode");
     $("#container").find( ".lightGeneric").removeClass("lightGeneric").addClass("darkGeneric");
     $("#container").find( ".btn-outline-dark").removeClass("btn-outline-dark").addClass("btn-outline-light");
     $("#contactForm").find(".form-control").addClass("darkModeForm");
     }
+}
+$( document ).ready(function() {
+const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+if (!prefersDarkScheme.matches) {
+    $("#timelineLine").addClass("timeline__progressbarLight");
+    $("#mode").text("Dark Mode").addClass("btn-dark");
+    document.getElementById("modeSmall").innerHTML = '<i id="moon" class="far fa-moon nav-link fs-4 py-0"></i>';
+    $("#everything").removeClass("generic").addClass("lightGeneric");
+    $("#navbar").removeClass("darkModeNavbar").addClass("lightModeNavbar");
+    $("#navbar2").removeClass("darkModeNavbar").addClass("lightModeNavbar");
+    $("#footer").removeClass("darkModeNavbar").addClass("lightModeNavbar");
+    $("#navbar").find(".nav-link").removeClass("text-light").addClass("text-dark");
+    $("#navbar").find("svg").addClass("vectorLight");
+    $("#navbar2").find(".nav-link").removeClass("text-light").addClass("text-dark");
+    $("#navbar2").find("svg").addClass("vectorLight");
+    $("#container").find( ".mode").removeClass("mode").addClass("lightMode");
+    $("#container").find( ".generic").removeClass("generic").addClass("lightGeneric");
+    $("#container").find( ".btn-outline-light").removeClass("btn-outline-light").addClass("btn-outline-dark");
+    $("#contactForm").find(".darkModeForm").removeClass("darkModeForm")
+}else{
+    $("#timelineLine").addClass("timeline__progressbarDark");
+    $("#mode").text("Light Mode").addClass("btn-light");
+    document.getElementById("modeSmall").innerHTML = '<i id="moon" class="fas fa-sun nav-link fs-4 py-0"></i>';
+    $("#everything").removeClass("generic").addClass("darkGeneric");
+    $("#container").find( ".mode").removeClass("mode").addClass("darkMode");
+    $("#container").find( ".generic").removeClass("generic").addClass("darkGeneric");
+    $("#navbar").removeClass("lightModeNavbar").addClass("darkModeNavbar");
+    $("#navbar2").removeClass("lightModeNavbar").addClass("darkModeNavbar");
+    $("#footer").removeClass("lightModeNavbar").addClass("darkModeNavbar");
+    $("#navbar").find(".nav-link").removeClass("text-dark").addClass("text-light");
+    $("#navbar").find("svg").addClass("vectorDark");
+    $("#navbar2").find(".nav-link").removeClass("text-dark").addClass("text-light");
+    $("#navbar2").find("svg").addClass("vectorDark");
+    $("#contactForm").find(".form-control").addClass("darkModeForm");
+}
+
+    $( window ).scroll(function() {
+        if(checkVisible($('#timelineStart'), 'stricklyAbove')){
+          $( "#name" ).fadeIn( "slow");
+          $( "#nameSmall" ).fadeIn( "slow");
+        }else{
+          $( "#name" ).fadeOut( "fast");
+          $( "#nameSmall" ).fadeOut( "fast");
+        }
+
+        if(checkVisible($('#contact'), 'stricklyAbove')){
+          $( "#homeLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#backLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#eduLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
+          $( "#skillLink").removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#expLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
+          $( "#passLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#conLink" ).addClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1homeLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1backLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1eduLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
+          $( "#1skillLink").removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1expLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
+          $( "#1passLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1conLink" ).addClass( "active fw-bold fs-5 pb-0 pt-1");
+        }else if(checkVisible($('#passions'), 'stricklyAbove')){
+          $( "#homeLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#backLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#eduLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
+          $( "#skillLink").removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#expLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
+          $( "#passLink" ).addClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#conLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1homeLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1backLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1eduLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
+          $( "#1skillLink").removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1expLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
+          $( "#1passLink" ).addClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1conLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+        }else if(checkVisible($('#experience'), 'stricklyAbove')){
+          $( "#homeLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#backLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#eduLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
+          $( "#skillLink").removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#expLink" ).addClass("active fw-bold fs-5 pb-0 pt-1");
+          $( "#passLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#conLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1homeLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1backLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1eduLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
+          $( "#1skillLink").removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1expLink" ).addClass("active fw-bold fs-5 pb-0 pt-1");
+          $( "#1passLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1conLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+        }else if(checkVisible($('#skills'), 'stricklyAbove')){
+          $( "#homeLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#backLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#eduLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
+          $( "#skillLink").addClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#expLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
+          $( "#passLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#conLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1homeLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1backLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1eduLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
+          $( "#1skillLink").addClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1expLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
+          $( "#1passLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1conLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+        }else if(checkVisible($('#education'), 'stricklyAbove')){
+          $( "#homeLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#backLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#eduLink" ).addClass("active fw-bold fs-5 pb-0 pt-1");
+          $( "#skillLink").removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#expLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
+          $( "#passLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#conLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1homeLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1backLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1eduLink" ).addClass("active fw-bold fs-5 pb-0 pt-1");
+          $( "#1skillLink").removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1expLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
+          $( "#1passLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1conLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+        }else if(checkVisible($('#background'), 'stricklyAbove')){
+          $( "#homeLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#backLink" ).addClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#eduLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
+          $( "#skillLink").removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#expLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
+          $( "#passLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#conLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1homeLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1backLink" ).addClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1eduLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
+          $( "#1skillLink").removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1expLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
+          $( "#1passLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1conLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+        }else{
+          $( "#homeLink" ).addClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#backLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#eduLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
+          $( "#skillLink").removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#expLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
+          $( "#passLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#conLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1homeLink" ).addClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1backLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1eduLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
+          $( "#1skillLink").removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1expLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
+          $( "#1passLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+          $( "#1conLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+        }
 });
+
+// $("#mode").click(function(){
+//   if($("#everything").hasClass("darkGeneric")){
+//     $("#timelineLine").removeClass("timeline__progressbarDark").addClass("timeline__progressbarLight");
+//     $("#mode").text("Dark Mode").removeClass("btn-light").addClass("btn-dark");
+//     $("#everything").toggleClass("darkGeneric");
+//     $("#everything").toggleClass("lightGeneric");
+//     $("#navbar").removeClass("darkModeNavbar").addClass("lightModeNavbar");
+//     $("#navbar2").removeClass("darkModeNavbar").addClass("lightModeNavbar");
+//     $("#footer").removeClass("darkModeNavbar").addClass("lightModeNavbar");
+//     $("#navbar").find(".nav-link").removeClass("text-light").addClass("text-dark");
+//     $("#navbar").find("svg").removeClass("vectorDark").addClass("vectorLight");
+//     $("#navbar2").find(".nav-link").removeClass("text-light").addClass("text-dark");
+//     $("#navbar2").find("svg").removeClass("vectorDark").addClass("vectorLight");
+//     $("#container").find( ".darkMode").removeClass("darkMode").addClass("lightMode");
+//     $("#container").find( ".darkGeneric").removeClass("darkGeneric").addClass("lightGeneric");
+//     $("#container").find( ".btn-outline-light").removeClass("btn-outline-light").addClass("btn-outline-dark");
+//     $("#contactForm").find(".darkModeForm").removeClass("darkModeForm")
+//   }else{
+//     $("#timelineLine").removeClass("timeline__progressbarLight").addClass("timeline__progressbarDark");
+//     $("#mode").text("Light Mode").removeClass("btn-dark").addClass("btn-light");
+//     $("#everything").toggleClass("darkGeneric");
+//     $("#everything").toggleClass("lightGeneric");
+//     $("#navbar").removeClass("lightModeNavbar").addClass("darkModeNavbar");
+//     $("#navbar2").removeClass("lightModeNavbar").addClass("darkModeNavbar");
+//     $("#footer").removeClass("lightModeNavbar").addClass("darkModeNavbar");
+//     $("#navbar").find(".nav-link").removeClass("text-dark").addClass("text-light");
+//     $("#navbar").find("svg").removeClass("vectorLight").addClass("vectorDark");
+//     $("#navbar2").find(".nav-link").removeClass("text-dark").addClass("text-light");
+//     $("#navbar2").find("svg").removeClass("vectorLight").addClass("vectorDark");
+//     $("#container").find( ".lightMode").removeClass("lightMode").addClass("darkMode");
+//     $("#container").find( ".lightGeneric").removeClass("lightGeneric").addClass("darkGeneric");
+//     $("#container").find( ".btn-outline-dark").removeClass("btn-outline-dark").addClass("btn-outline-light");
+//     $("#contactForm").find(".form-control").addClass("darkModeForm");
+//     }
+// });
         // if(checkVisible($('#timelineEnd'), 'above')){
         //   $("#timelineLine").fadeOut("slow");
         //     $( "#timeline" ).stop().fadeTo( 500, 0.0);
