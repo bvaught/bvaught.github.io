@@ -33,9 +33,7 @@ function darkMode(){
     $("#navbar2").removeClass("darkModeNavbar").addClass("lightModeNavbar");
     $("#footer").removeClass("darkModeNavbar").addClass("lightModeNavbar");
     $("#navbar").find(".nav-link").removeClass("text-light").addClass("text-dark");
-    $("#navbar").find("svg").removeClass("vectorDark").addClass("vectorLight");
     $("#navbar2").find(".nav-link").removeClass("text-light").addClass("text-dark");
-    $("#navbar2").find("svg").removeClass("vectorDark").addClass("vectorLight");
     $("#container").find( ".darkMode").removeClass("darkMode").addClass("lightMode");
     $("#container").find( ".darkGeneric").removeClass("darkGeneric").addClass("lightGeneric");
     $("#container").find( ".btn-outline-light").removeClass("btn-outline-light").addClass("btn-outline-dark");
@@ -51,9 +49,7 @@ function darkMode(){
     $("#navbar2").removeClass("lightModeNavbar").addClass("darkModeNavbar");
     $("#footer").removeClass("lightModeNavbar").addClass("darkModeNavbar");
     $("#navbar").find(".nav-link").removeClass("text-dark").addClass("text-light");
-    $("#navbar").find("svg").removeClass("vectorLight").addClass("vectorDark");
     $("#navbar2").find(".nav-link").removeClass("text-dark").addClass("text-light");
-    $("#navbar2").find("svg").removeClass("vectorLight").addClass("vectorDark");
     $("#container").find( ".lightMode").removeClass("lightMode").addClass("darkMode");
     $("#container").find( ".lightGeneric").removeClass("lightGeneric").addClass("darkGeneric");
     $("#container").find( ".btn-outline-dark").removeClass("btn-outline-dark").addClass("btn-outline-light");
@@ -63,36 +59,19 @@ function darkMode(){
 $( document ).ready(function() {
 const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 
-if (!prefersDarkScheme.matches) {
-    $("#timelineLine").addClass("timeline__progressbarLight");
-    $("#mode").text("Dark Mode").addClass("btn-dark");
-    document.getElementById("modeSmall").innerHTML = '<i id="moon" class="far fa-moon nav-link fs-4 py-0"></i>';
-    $("#everything").removeClass("generic").addClass("lightGeneric");
-    $("#navbar").removeClass("darkModeNavbar").addClass("lightModeNavbar");
-    $("#navbar2").removeClass("darkModeNavbar").addClass("lightModeNavbar");
-    $("#footer").removeClass("darkModeNavbar").addClass("lightModeNavbar");
-    $("#navbar").find(".nav-link").removeClass("text-light").addClass("text-dark");
-    $("#navbar").find("svg").addClass("vectorLight");
-    $("#navbar2").find(".nav-link").removeClass("text-light").addClass("text-dark");
-    $("#navbar2").find("svg").addClass("vectorLight");
-    $("#container").find( ".mode").removeClass("mode").addClass("lightMode");
-    $("#container").find( ".generic").removeClass("generic").addClass("lightGeneric");
-    $("#container").find( ".btn-outline-light").removeClass("btn-outline-light").addClass("btn-outline-dark");
-    $("#contactForm").find(".darkModeForm").removeClass("darkModeForm")
-}else{
-    $("#timelineLine").addClass("timeline__progressbarDark");
-    $("#mode").text("Light Mode").addClass("btn-light");
-    document.getElementById("modeSmall").innerHTML = '<i id="moon" class="fas fa-sun nav-link fs-4 py-0"></i>';
-    $("#everything").removeClass("generic").addClass("darkGeneric");
-    $("#container").find( ".mode").removeClass("mode").addClass("darkMode");
-    $("#container").find( ".generic").removeClass("generic").addClass("darkGeneric");
+if (prefersDarkScheme.matches){
+    $("#timelineLine").removeClass("timeline__progressbarLight").addClass("timeline__progressbarDark");
+    $("#mode").text("Light Mode").removeClass("btn-dark").addClass("btn-light");
+    $("#moon").removeClass("fa-moon").addClass("fa-sun");
+    $("#everything").removeClass("lightGeneric").addClass("darkGeneric");
+    $("#container").find( ".lightMode").removeClass("lightMode").addClass("darkMode");
+    $("#container").find( ".lightGeneric").removeClass("lightGeneric").addClass("darkGeneric");
+    $("#container").find( ".btn-outline-dark").removeClass("btn-outline-dark").addClass("btn-outline-light");
     $("#navbar").removeClass("lightModeNavbar").addClass("darkModeNavbar");
     $("#navbar2").removeClass("lightModeNavbar").addClass("darkModeNavbar");
     $("#footer").removeClass("lightModeNavbar").addClass("darkModeNavbar");
     $("#navbar").find(".nav-link").removeClass("text-dark").addClass("text-light");
-    $("#navbar").find("svg").addClass("vectorDark");
     $("#navbar2").find(".nav-link").removeClass("text-dark").addClass("text-light");
-    $("#navbar2").find("svg").addClass("vectorDark");
     $("#contactForm").find(".form-control").addClass("darkModeForm");
 }
 
