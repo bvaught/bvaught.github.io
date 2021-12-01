@@ -323,7 +323,6 @@ opacity: 0.75;
     content: "";
     position: fixed;
     top: 0;
-    left: var(--left);
     width: var(--width);
     height: 50vh;
     border-radius: 25px;
@@ -358,7 +357,6 @@ opacity: 0.75;
     content: "";
     position: fixed;
     top: 0;
-    left: var(--left);
     width: var(--width);
     height: 50vh;
     border-radius: 25px;
@@ -768,10 +766,16 @@ opacity: 0.75;
           <div id="timelineLine" class="timeline__progressbarLight"></div>
           <div class="py-5"></div>
           <div class="timeline__block">
-          <div class="timeline__block__head">
-            <h1 class="timeline__block__title">Timeline</h1>
-          </div>
-          </div>
+            <div class="timeline__block__bullet-point">
+              <!-- <span class="timeline__block__circle"></span> -->
+            </div>
+            <div class="timeline__block__head">
+              <h1 class="timeline__block__title">Timeline</h1>
+            </div>
+            <div class="timeline__block__body">
+              <p class="timeline__block__text"></p>
+            </div>
+            </div>    
           <div class="py-5"></div>
           <div class="py-5"></div>
           <div class="py-5"></div>
@@ -826,10 +830,16 @@ opacity: 0.75;
               <div class="py-5"></div>
               <div class="py-5"></div>
               <div class="timeline__block">
-              <div class="timeline__block__head">
-                <h1 class="timeline__block__title">The Future</h1>
-              </div>
-              </div>
+                <div class="timeline__block__bullet-point">
+                  <!-- <span class="timeline__block__circle"></span> -->
+                </div>
+                <div class="timeline__block__head">
+                  <h1 class="timeline__block__title">Future Goals</h1>
+                </div>
+                <div class="timeline__block__body">
+                  <p class="timeline__block__text"></p>
+                </div>
+                </div> 
               <div class="py-5"></div>
               <div class="py-5"></div>
               <div class="py-5"></div>
@@ -1125,11 +1135,11 @@ opacity: 0.75;
         <div class="card-body lightMode">
           <h5 class="card-title fs-1 text-center pt-2 pb-0 mb-0" style="text-decoration: none;">Electric Skateboard</h5>
           <hr class="my-3">
-          <p class="fs-5 p-3 pb-0" style="text-indent: 6%;">Georgia Tech has a beautiful 400 acre campus; however, whether it’s the windy weather or you are late to class, it’s vastness can be daunting. To solve this issue I designed an electric skateboard with 15 miles of range utilizing Samsung 25R 18650 batteries in a 10S2P configuration connected to two 150W motors built into the wheels of the skateboard for water-resistance. Additionally, the device charges utilizing usb-c power delivery protocols to ensure proper voltage. Overall, this project exposed me to more of the electrical side of computer engineering with batteries and motors, a topic normally overlooked when studying computer engineering.</p>
+          <p class="fs-5 p-3 pb-0" style="text-indent: 6%;">Georgia Tech has a beautiful 400 acre campus; however, whether it’s the windy weather or you are late to class, it’s vastness can be daunting. To solve this issue I designed an electric skateboard with 15 miles of range utilizing Samsung 25R 18650 batteries in a 10S2P configuration connected to two 150W motors built into the wheels of the skateboard for water-resistance. Additionally, the device charges utilizing usb-c power delivery protocols to ensure proper voltage. Overall, this project exposed me to more of the electrical side of computer engineering with batteries and motors, a topic normally overlooked when studying computer engineering. Click on one of the images below to learn more about the engineering process behind this project.</p>
           <div class="row pb-3">
-            <div class="col-sm-4"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/Skate3.png" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></div>
-            <div class="col-sm-4"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/Skate2.JPG" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"  ></div></div>
-            <div class="col-sm-4"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/Skate1.JPG" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></div>  
+            <div class="col-sm-4"><button class="p-0 lightMode" style="border:none; height:min-content;"type="button" data-bs-toggle="modal" data-bs-target="#skateboard1"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/Skate3.png" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></button></div>
+            <div class="col-sm-4"><button class="p-0 lightMode" style="border:none; height:min-content;"type="button" data-bs-toggle="modal" data-bs-target="#skateboard2"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/Skate2.JPG" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></button></div>
+            <div class="col-sm-4"><button class="p-0 lightMode" style="border:none; height:min-content;"type="button" data-bs-toggle="modal" data-bs-target="#skateboard3"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/Skate1.JPG" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></button></div>  
           </div>
           </div>
       </div>
@@ -1139,6 +1149,54 @@ opacity: 0.75;
     <div id="passions" class="row text-center lightGeneric pt-4">
       <hr style="width:90%; margin:auto; " class="hrStuff">
     </div>    
+    <!--Initial Design-->
+<div class="modal fade" id="skateboard1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content lightMode">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Design process and initial findings</h5>
+      </div>
+      <div class="modal-body p-3">
+        <p class="mb-0 fs-5">The project started with a circuit diagram showing how the individual batteries are wired to each other and to the Battery Management System (BMS). In order to get the proper output for the motor controller (36v), the batteries needed to be wired in series to combine their individual voltage (3.6v) to obtain 36v. Additionally, the BMS needed to charge the batteries individually in parallel to ensure each battery charged to the same amount. Because of this combination of a need for series and parallel wiring the batteries have individual wires running to the BMS and to each other connecting the entire circuit.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <!--Engineering Process-->
+    <div class="modal fade" id="skateboard2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content lightMode">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Engineering Process</h5>
+          </div>
+          <div class="modal-body p-3">
+            <p class="mb-0 fs-5">When building the skateboard, wires were connected to spring-loaded 18650 plastic battery holders to allow for each replacement in case a battery ever degrades. Moreover, XT-60 connectors are soldered to the positive and negative terminals of the battery to allow for the battery to be easily unplugged from the motor to allow for swappable battery packs to extend the range of the skateboard. This skateboard also utilizes usb-c power delivery protocol which plugs into the same XT-60 connector that unplugs from the motor to allow for the skateboard to be charged from any usb-c charger.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Final Thoughts-->
+    <div class="modal fade" id="skateboard3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content lightMode">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Final thoughts</h5>
+          </div>
+          <div class="modal-body p-3">
+            <p class="mb-0 fs-5">Overall, throughout this process I learned how to build a lithium-ion battery with proper safeguards. Additionally, I utilized soldering to connect the battery packs and a multimeter throughout the building process to monitor voltage and amperage to ensure the electric current was flowing properly. When I started this project I was naive to the fact that lithium-ion cells need many electrical safeguards to ensure there is no over-volting because the sensitive silicon components of the motor controller could denature if the lithium-ion batteries are not limited in their output.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <!--
 //////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////
