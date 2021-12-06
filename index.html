@@ -5,7 +5,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/28801301c5.js" crossorigin="anonymous"></script>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 <html>
   <head>
     <title>William Brayden Vaught</title>
@@ -24,7 +24,7 @@
     
         if (evalType === "visible") return ((y < (vpH + st)) && (y > (st - elementHeight)));
         if (evalType === "above") return ((y < (vpH + st)));
-        if (evalType === "stricklyAbove") return ((y < (st - elementHeight+5)));
+        if (evalType === "stricklyAbove") return ((y < (st - elementHeight+20)));
         }
         return(false)
     }
@@ -35,65 +35,8 @@
     document.getElementById("sendIt").click();
       }
     }
-    
-    function darkMode(){
-      if($("#everything").hasClass("darkGeneric")){
-        $("#timelineLine").removeClass("timeline__progressbarDark").addClass("timeline__progressbarLight");
-        $("#mode").text("Dark Mode").removeClass("btn-light").addClass("btn-dark");
-        $("#moon").removeClass("fa-sun").addClass("fa-moon");
-        $("hamburger").removeClass("darkMode").addClass("lightMode");
-        $("#everything").toggleClass("darkGeneric");
-        $("#everything").toggleClass("lightGeneric");
-        $("#navbar").removeClass("darkModeNavbar").addClass("lightModeNavbar");
-        $("#navbar2").removeClass("darkModeNavbar").addClass("lightModeNavbar");
-        $("#footer").removeClass("darkModeNavbar").addClass("lightModeNavbar");
-        $("#navbar").find(".nav-link").removeClass("text-light").addClass("text-dark");
-        $("#navbar2").find(".nav-link").removeClass("text-light").addClass("text-dark");
-        $("#container").find( ".darkMode").removeClass("darkMode").addClass("lightMode");
-        $("#container").find( ".darkGeneric").removeClass("darkGeneric").addClass("lightGeneric");
-        $("#container").find( ".gatechLinkLight").removeClass("gatechLinkLight").addClass("gatechLinkDark");
-        $("#container").find( ".btn-outline-light").removeClass("btn-outline-light").addClass("btn-outline-dark");
-        $("#contactForm").find(".darkModeForm").removeClass("darkModeForm")
-      }else{
-        $("#timelineLine").removeClass("timeline__progressbarLight").addClass("timeline__progressbarDark");
-        $("#mode").text("Light Mode").removeClass("btn-dark").addClass("btn-light");
-        $("#moon").removeClass("fa-moon").addClass("fa-sun");
-        $("hamburger").removeClass("lightMode").addClass("darkMode");
-        $("#everything").toggleClass("darkGeneric");
-        $("#everything").toggleClass("lightGeneric");
-        $("#navbar").removeClass("lightModeNavbar").addClass("darkModeNavbar");
-        $("#navbar2").removeClass("lightModeNavbar").addClass("darkModeNavbar");
-        $("#footer").removeClass("lightModeNavbar").addClass("darkModeNavbar");
-        $("#navbar").find(".nav-link").removeClass("text-dark").addClass("text-light");
-        $("#navbar2").find(".nav-link").removeClass("text-dark").addClass("text-light");
-        $("#container").find( ".lightMode").removeClass("lightMode").addClass("darkMode");
-        $("#container").find( ".lightGeneric").removeClass("lightGeneric").addClass("darkGeneric");
-        $("#container").find( ".btn-outline-dark").removeClass("btn-outline-dark").addClass("btn-outline-light");
-        $("#container").find( ".gatechLinkDark").removeClass("gatechLinkDark").addClass("gatechLinkLight");
-        $("#contactForm").find(".form-control").addClass("darkModeForm");
-        }
-    }
-    $( document ).ready(function() {
-    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-    
-    if (prefersDarkScheme.matches){
-        $("#timelineLine").removeClass("timeline__progressbarLight").addClass("timeline__progressbarDark");
-        $("#mode").text("Light Mode").removeClass("btn-dark").addClass("btn-light");
-        $("#moon").removeClass("fa-moon").addClass("fa-sun");
-        $("#everything").removeClass("lightGeneric").addClass("darkGeneric");
-        $("#container").find( ".lightMode").removeClass("lightMode").addClass("darkMode");
-        $("#container").find( ".lightGeneric").removeClass("lightGeneric").addClass("darkGeneric");
-        $("#container").find( ".btn-outline-dark").removeClass("btn-outline-dark").addClass("btn-outline-light");
-        $("#container").find( ".gatechLinkDark").removeClass("gatechLinkDark").addClass("gatechLinkLight");
-        $("#navbar").removeClass("lightModeNavbar").addClass("darkModeNavbar");
-        $("#navbar2").removeClass("lightModeNavbar").addClass("darkModeNavbar");
-        $("#footer").removeClass("lightModeNavbar").addClass("darkModeNavbar");
-        $("#navbar").find(".nav-link").removeClass("text-dark").addClass("text-light");
-        $("#navbar2").find(".nav-link").removeClass("text-dark").addClass("text-light");
-        $("#contactForm").find(".form-control").addClass("darkModeForm");
-    }
-    
-        $( window ).scroll(function() {
+       
+    $(window).scroll(function() {
             if(checkVisible($('#timelineStart'), 'stricklyAbove')){
               $( "#name" ).fadeIn( "slow");
               $( "#nameSmall" ).fadeIn( "slow");
@@ -101,7 +44,6 @@
               $( "#name" ).fadeOut( "fast");
               $( "#nameSmall" ).fadeOut( "fast");
             }
-    
             if(checkVisible($('#contact'), 'stricklyAbove')){
               $( "#homeLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
               $( "#backLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
@@ -177,7 +119,7 @@
               $( "#1expLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
               $( "#1passLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
               $( "#1conLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
-            }else if(checkVisible($('#background'), 'stricklyAbove')){
+            }else if(checkVisible($('#timeline'), 'stricklyAbove')){
               $( "#homeLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
               $( "#backLink" ).addClass( "active fw-bold fs-5 pb-0 pt-1");
               $( "#eduLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
@@ -192,7 +134,7 @@
               $( "#1expLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
               $( "#1passLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
               $( "#1conLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
-            }else{
+            }else if(checkVisible($('#background'), 'stricklyAbove')){
               $( "#homeLink" ).addClass( "active fw-bold fs-5 pb-0 pt-1");
               $( "#backLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
               $( "#eduLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
@@ -207,141 +149,148 @@
               $( "#1expLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
               $( "#1passLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
               $( "#1conLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+            }else{
+              $( "#homeLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+              $( "#backLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+              $( "#eduLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
+              $( "#skillLink").removeClass( "active fw-bold fs-5 pb-0 pt-1");
+              $( "#expLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
+              $( "#passLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+              $( "#conLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+              $( "#1homeLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+              $( "#1backLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+              $( "#1eduLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
+              $( "#1skillLink").removeClass( "active fw-bold fs-5 pb-0 pt-1");
+              $( "#1expLink" ).removeClass("active fw-bold fs-5 pb-0 pt-1");
+              $( "#1passLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
+              $( "#1conLink" ).removeClass( "active fw-bold fs-5 pb-0 pt-1");
             }
-    });
         });
     </script>
 <!--END OF JAVASCRIPT-->
 
 <!--CSS FOR EVERYTHING-->
 <style>
-  .darkGeneric {
-    background-color: #2A2A2A !important;
-    color: #f3f3f3 !important;
-}
-.shadow{
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-.lightGeneric{
-  background-color: #f3f3f3;
-    color: #212529;
-}
-.vectorLight{
-  fill: #212529;
-}
-.vectorDark{
-  fill: #f3f3f3;
-}
-.darkModeNavbar{
-    border-radius: 0px 0px 15px 15px;
-    opacity: 0.98;
-    background-color: #3a3a3a;
-    color: #f3f3f3;
-}
-.lightModeNavbar{
-  border-radius: 0px 0px 15px 15px;
-  opacity: 0.98;
-  background-color: #D6D6D6;
-  color: #212529;
-}
-.navbarItem:hover{
-  font-weight: bolder;
-  text-decoration: underline;
-  text-decoration-color: #B3A369;
-  text-decoration-thickness: 0.20rem;
-  text-underline-position: under;
-}
-.title{
-    font-size: 4em !important;
-    font-weight: 450;
-}
-.gatechLinkDark{
-  color:#857437;
-}
-.hrStuff{
-color:#B3A369;
-height: 2px !important;
-border-radius: 5px !important;
-opacity: 0.75;
-}
-.gatechLinkLight{
-  color:#B3A369;
-}
-.gatechLinkDark:hover{
-    color:#B3A369;
-}
-.gatechLinkLight:hover{
-    color:#A4925A
-}
-.darkMode{
-  background-color: #4d4d4d;
-  color:#F8F9FA;
-  border:none;
-  border-radius: 0.45rem;
-}
-
-.lightMode{
-  background-color: #F8F9FA;
-  color:#212529;
-  border:none;
-  border-radius: 0.45rem;
-}
-
-.darkModeForm, .darkModeForm:active{
-  background-color: #3A3A3A !important;
-  color:#F8F9FA !important;
-  border:none !important;
-  border-radius: 0.45rem !important;
-  caret-color: #F8F9FA;
-}
-
-.lightModeForm, .lightModeForm:active{
-  background-color: #F8F9FA !important;
-  color:#212529 !important;
-  border:none !important;
-  border-radius: 0.45rem !important;
-  caret-color: #3A3A3A;
-}
-
-.timeline {
-    position: relative;
-  }
-  
-  .timeline__progressbarDark {
-    --width: 2px;
-    --left: -moz-calc(((15vw / 2) + 15px) - (var(--width) / 2));
-    --left: calc(((15vw / 2) + 15px) - (var(--width) / 2));
-    position: absolute;
-    left: var(--left);
-    width: var(--width);
-    height: 150%;
-    background-color: #3b3b3b;
-    z-index: -1;
-  }
-  
-  .timeline__progressbarDark::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    width: var(--width);
-    height: 50vh;
-    border-radius: 25px;
-    background: -webkit-gradient(linear, left top, left bottom, from(#4f472f),to(#E0B93A));
-    background: -webkit-linear-gradient(#4f472f, #E0B93A);
-    background: -moz-linear-gradient(#4f472f,#E0B93A);
-    background: -o-linear-gradient(#4f472f,#E0B93A);
-    background: linear-gradient(#4f472f,#E0B93A);
-  }
-  
-  @media screen and (min-width: 800px) {
-    .timeline__progressbarDark {
-      --width: 3px;
-      --left: -moz-calc(50% - (var(--width) / 2));
-      --left: calc(50% - (var(--width) / 2));
+  @media (prefers-color-scheme: dark) {
+    .generic {
+      background-color: #2A2A2A !important;
+      color: #f3f3f3 !important;
+    }
+    .navbarColor{
+      border-radius: 0px 0px 15px 15px;
+      opacity: 0.98;
+      background-color: #3a3a3a;
+      color: #f3f3f3;
+    }
+    .navLinkColor{
+      color:#F3F3F3 !important;
+      text-decoration: none;
+    }
+    .gatechLink{
+      color:#B3A369;
+    }
+    .gatechLink:hover{
+      color:#A4925A
+    }
+    .button {
+      transition-duration: 0.2s;
+      color: #f8f9fa;
+      border-color: #f8f9fa;
+    }
+    .button:hover {
+      background-color: #f8f9fa;
+      color: #212529;
+    }
+    .mode{
+      background-color: #4d4d4d;
+      color:#F8F9FA;
+      border:none;
+      border-radius: 0.45rem;
+    }
+    .modeForm, .modeForm:active{
+      background-color: #3A3A3A !important;
+      color:#F8F9FA !important;
+      border:none !important;
+      border-radius: 0.45rem !important;
+      caret-color: #F8F9FA;
+    }
+    .timeline__progressbar {
+      --width: 2px;
+      --left: -moz-calc(((15vw / 2) + 15px) - (var(--width) / 2));
+      --left: calc(((15vw / 2) + 15px) - (var(--width) / 2));
+      position: absolute;
+      left: var(--left);
+      width: var(--width);
+      height: 150%;
+      background-color: #3b3b3b;
+      z-index: -1;
+    }
+    .timeline__progressbar::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      width: var(--width);
+      height: 50vh;
+      border-radius: 25px;
+      background: -webkit-gradient(linear, left top, left bottom, from(#4f472f),to(#E0B93A));
+      background: -webkit-linear-gradient(#4f472f, #E0B93A);
+      background: -moz-linear-gradient(#4f472f,#E0B93A);
+      background: -o-linear-gradient(#4f472f,#E0B93A);
+      background: linear-gradient(#4f472f,#E0B93A);
+    }
+    @media screen and (min-width: 800px) {
+      .timeline__progressbar {
+        --width: 3px;
+        --left: -moz-calc(50% - (var(--width) / 2));
+        --left: calc(50% - (var(--width) / 2));
+      }
     }
   }
 
-  .timeline__progressbarLight {
+  @media (prefers-color-scheme: light) {
+  .generic{
+  background-color: #f3f3f3;
+    color: #212529;
+  }
+  .navbarColor{
+    border-radius: 0px 0px 15px 15px;
+    opacity: 0.98;
+    background-color: #D6D6D6;
+    color: #212529;
+  }
+  .navLinkColor{
+      color:#212529 !important;
+      text-decoration: none;
+    }
+  .gatechLink{
+    color:#857437;
+  }
+  .gatechLink:hover{
+      color:#B3A369;
+  }
+  .button {
+    transition-duration: 0.2s;
+    color: #212529;
+    border-color: #212520;
+  }
+  .button:hover {
+    background-color: #212529;
+    color: #F8F9FA;
+  }
+  .mode{
+    background-color: #F8F9FA;
+    color:#212529;
+    border:none;
+    border-radius: 0.45rem;
+  }
+  .modeForm, .modeForm:active{
+    background-color: #ececec !important;
+    color:#212529 !important;
+    border:none !important;
+    border-radius: 0.45rem !important;
+    caret-color: #3A3A3A;
+  }
+  .timeline__progressbar {
     --width: 2px;
     --left: -moz-calc(((15vw / 2) + 15px) - (var(--width) / 2));
     --left: calc(((15vw / 2) + 15px) - (var(--width) / 2));
@@ -352,8 +301,7 @@ opacity: 0.75;
     background-color: #c2c2c2;
     z-index: -1;
   }
-  
-  .timeline__progressbarLight::after {
+  .timeline__progressbar::after {
     content: "";
     position: fixed;
     top: 0;
@@ -366,15 +314,74 @@ opacity: 0.75;
     background: -o-linear-gradient(#ffeaa3,#4f472f);
     background: linear-gradient(#ffeaa3,#4f472f)
   }
-  
   @media screen and (min-width: 800px) {
-    .timeline__progressbarLight {
+    .timeline__progressbar {
       --width: 3px;
       --left: -moz-calc(50% - (var(--width) / 2));
       --left: calc(50% - (var(--width) / 2));
     }
   }
-  
+}
+  /* Container holding the image and the text */
+  .image {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+/* Centered text */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #B3A369;
+  backdrop-filter: blur(50px);
+  width: 100%;
+  height: 101%;
+  border-radius: 0.30rem;
+  opacity: 0.0;
+  transition-duration: 0.5s;
+}
+.centered:hover{
+  transition-duration: 0.5s;
+  opacity: 0.95;
+}
+.centeredText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+:root {
+  --animate-delay: 0.25s;
+}
+.animate__animated.animate__fadeIn {
+  --animate-duration: 1s;
+}
+.shadow{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.navbarItem:hover{
+  font-weight: bolder;
+  text-decoration: underline;
+  text-decoration-color: #B3A369;
+  text-decoration-thickness: 0.20rem;
+  text-underline-position: under;
+}
+.title{
+    font-size: 4em !important;
+    font-weight: 450;
+}
+.hrStuff{
+color:#B3A369;
+height: 2px !important;
+border-radius: 5px !important;
+opacity: 0.75;
+}
+.timeline {
+    position: relative;
+  } 
   .timeline__block {
     display: -ms-grid;
     display: grid;
@@ -387,15 +394,13 @@ opacity: 0.75;
        -moz-box-align: start;
         -ms-flex-align: start;
             align-items: start;
-  }
-  
+  } 
   @media screen and (min-width: 800px) {
     .timeline__block {
       -ms-grid-columns: 1fr 15vh 1fr;
           grid-template-columns: 1fr 15vh 1fr;
     }
   }
-  
   @media screen and (min-width: 800px) {
     .timeline__block__head {
       -ms-grid-column: 1;
@@ -407,17 +412,14 @@ opacity: 0.75;
       top: 50vh;
     }
   }
-  
   .timeline__block__body {
     grid-column: 2 / -1;
   }
-  
   @media screen and (min-width: 800px) {
     .timeline__block__body {
       grid-column: 3 / -1;
     }
   }
-  
   .timeline__block__bullet-point {
     position: -webkit-sticky;
     position: sticky;
@@ -433,7 +435,6 @@ opacity: 0.75;
         -ms-flex-pack: center;
             justify-content: center;
   }
-  
   @media screen and (min-width: 800px) {
     .timeline__block__bullet-point {
       -ms-grid-column: 2;
@@ -441,7 +442,6 @@ opacity: 0.75;
       grid-column: 2 / 3;
     }
   }
-  
   .timeline__block__circle {
     display: inline-block;
     width: 2rem;
@@ -450,18 +450,15 @@ opacity: 0.75;
     background-color: #ffffff;
     border-radius: 50%;
   }
-  
   .timeline__block__title {
     font-size: 3rem;
   }
-  
   @media screen and (max-width: 799px) {
     .timeline__block__title {
       margin-top: -1.5rem;
       margin-bottom: 2rem;
     }
   }
-  
   @media screen and (max-width: 1187px){
     .smallScreen{
       display: flex;
@@ -488,13 +485,11 @@ opacity: 0.75;
     font-size: 1.6rem;
     width: 90%;
   }
-  
   @media screen and (min-width: 500px) {
     .timeline__block__text {
       font-size: 1.8rem;
     }
   }
-  
   /* .timeline__hider {
     position: -webkit-sticky;
     position: sticky;
@@ -508,7 +503,6 @@ opacity: 0.75;
     background: linear-gradient(transparent, #0b0b0b);
     pointer-events: none;
   } */
-
   .timelineContainer {
     width: 100%;
     max-width: 1140px;
@@ -517,24 +511,20 @@ opacity: 0.75;
     margin-left: auto;
     margin-right: auto;
 }
-
 /* [1] The container */
 .img-hover-zoom {
   height: min-content; /* [1.1] Set it as per your need */
   overflow: hidden; /* [1.2] Hide the overflowing of child elements */
   border-radius: 0.45rem;
 }
-
 /* [2] Transition property for smooth transformation of images */
 .img-hover-zoom img {
   transition: transform .6s ease;
 }
-
 /* [3] Finally, transforming the image when container gets hovered */
 .img-hover-zoom:hover img {
   transform: scale(1.3);
 }
-
 .overlay{
   z-index: 1;
   opacity: 0.0;
@@ -545,50 +535,50 @@ opacity: 0.75;
 
 
   <!--HTML FOR EVERYTHING-->
-  <body id="everything" class="lightGeneric">
+  <body id="everything" class="generic">
     <div id="container" class="container mx-0" style="max-width: none;">
       <!--FULL SCREEN NAVBAR-->
-      <div id="navbar" class="row width-full navbar lightModeNavbar sticky-top bigScreen">
+      <div id="navbar" class="row width-full navbar navbarColor sticky-top bigScreen">
         <div class="col-2 pe-0 ps-4">
-          <p id="name" style="display: none;" class="fs-6 mb-0">William Brayden Vaught</p>
+          <a href="#" class="navLinkColor"><h5 id="name" style="display: none;" class="mb-0">Brayden Vaught</h5></a>
         </div>
-        <div class="col p-0">
+        <div class="col p-0 animate__animated animate__fadeInDown">
           <div class="row p-0">
           <ul class="nav p-0 text-light">
             <div class="col text-center">
             <li>
-              <a id="homeLink" class="text-dark nav-link navbarItem active fw-bold fs-5 pb-0 pt-1" href="#">Home</a>
+              <a id="homeLink" class="navLinkColor nav-link navbarItem" href="#background">Background</a>
             </li>
             </div><div class="col text-center">
             <li>
-              <a id="backLink" class="text-dark nav-link navbarItem" href="#background">About Me</a>
+              <a id="backLink" class="navLinkColor nav-link navbarItem" href="#timeline">Timeline</a>
             </li>
             </div><div class="col text-center">
             <li>
-              <a id="eduLink" class="text-dark nav-link navbarItem" href="#education">Education</a>
+              <a id="eduLink" class="navLinkColor nav-link navbarItem" href="#education">Education</a>
             </li>
           </div><div class="col text-center">
             <li>
-              <a id="skillLink" class="text-dark nav-link navbarItem" href="#skills">Skills</a>
+              <a id="skillLink" class="navLinkColor nav-link navbarItem" href="#skills">Skills</a>
             </li>
           </div><div class="col text-center">
             <li>
-              <a id="expLink" class="text-dark nav-link navbarItem" href="#experience">Experience</a>
+              <a id="expLink" class="navLinkColor nav-link navbarItem" href="#experience">Experience</a>
             </li>
           </div><div class="col text-center">
             <li>
-              <a id="passLink" class="text-dark nav-link navbarItem text-light" href="#passions">Passions</a>
+              <a id="passLink" class="navLinkColor nav-link navbarItem text-light" href="#passions">Passions</a>
             </li>
           </div><div class="col text-center">
             <li>
-              <a id="conLink" class="text-dark nav-link navbarItem text-light" href="#contact">Contact</a>
+              <a id="conLink" class="navLinkColor nav-link navbarItem text-light" href="#contact">Contact</a>
             </li>
             </div>
           </ul>
           </div>
         </div>
-        <div class="col-2 text-end  ps-0 pe-4">
-          <button id="mode" type="button" class="btn btn-sm btn-dark" onclick="darkMode()">Dark Mode</button>
+        <div class="col-2 text-end  ps-0 pe-4" style="overflow:hidden;">
+          <a href="BraydenVaught.pdf" target="_blank" rel="noopener noreferrer"><button type="button" class="btn btn-sm button animate__animated animate__fadeInRight">View Resume</button></a>
         </div>
       </div>
     <!--
@@ -605,42 +595,42 @@ opacity: 0.75;
 //////////////////////////////////////////////////////////////////////////////////////////////////
     -->
       <!--SMALL SCREEN NAVBAR-->
-      <div id="navbar2" class="row width-full navbar lightModeNavbar sticky-top smallScreen">
+      <div id="navbar2" class="row width-full navbar navbarColor sticky-top smallScreen">
         <div class="col-2">
           <a class="btn btn-sm" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-            <i id="hamburger" class="text-dark fas fa-bars fs-4 nav-link py-0"></i>
+            <i id="hamburger" class="navLinkColor fas fa-bars fs-4 nav-link py-0"></i>
           </a>
         </div>
         <div class="col-8 text-center p-0 d-flex justify-content-center">
-          <p id="nameSmall" class="fs-4 m-0 p-0" style="display:none;">William Brayden Vaught</p>
+          <a href="#" class="navLinkColor"><p id="nameSmall" class="fs-4 m-0 p-0" style="display:none;">William Brayden Vaught</p></a>
           <button id="mode" type="button" class="btn btn-sm"></button>
         </div>
         <div class="col-2 text-end pe-2">
-          <button id="modeSmall" type="button" class="btn btn-sm" onclick="darkMode()"><i id="moon" class="text-dark far fa-moon nav-link fs-4 py-0"></i></button>
+          <a href="BraydenVaught.pdf" target="_blank" rel="noopener noreferrer"><i id="moon" class="navLinkColor far fa-file-pdf nav-link fs-4 py-0"></i></a>
         </div>
         <div class="collapse" id="collapseExample">
           <div class="card-body pb-0 ps-0 pe-0 pt-2">
             <ul>
               <li class="nav-item">
-                <a id="1homeLink" class="text-dark nav-link navbarItem active fw-bold fs-5 pb-0 pt-1" aria-current="page" href="#">Home</a>
+                <a id="1homeLink" class="navLinkColor nav-link navbarItem" href="#background">Background</a>
               </li>
               <li class="nav-item">
-                <a id="1backLink" class="text-dark nav-link navbarItem" href="#background">About Me</a>
+                <a id="1backLink" class="navLinkColor nav-link navbarItem" href="#timeline">Timeline</a>
               </li>
               <li class="nav-item">
-                <a id="1eduLink" class="text-dark nav-link navbarItem" href="#education">Education</a>
+                <a id="1eduLink" class="navLinkColor nav-link navbarItem" href="#education">Education</a>
               </li>
               <li class="nav-item">
-                <a id="1skillLink" class="text-dark nav-link navbarItem" href="#skills">Skills</a>
+                <a id="1skillLink" class="navLinkColor nav-link navbarItem" href="#skills">Skills</a>
               </li>
               <li class="nav-item">
-                <a id="1expLink" class="text-dark nav-link navbarItem" href="#experinces">Experience</a>
+                <a id="1expLink" class="navLinkColor nav-link navbarItem" href="#experinces">Experience</a>
               </li>
               <li class="nav-item">
-                <a id="1passLink" class="text-dark nav-link navbarItem" href="#passions">Passions</a>
+                <a id="1passLink" class="navLinkColor nav-link navbarItem" href="#passions">Passions</a>
               </li>
               <li class="nav-item">
-                <a id="1conLink" class="text-dark nav-link navbarItem" href="#contact">Contact</a>
+                <a id="1conLink" class="navLinkColor nav-link navbarItem" href="#contact">Contact</a>
               </li>
             </ul>
           </div>
@@ -660,24 +650,28 @@ opacity: 0.75;
 //////////////////////////////////////////////////////////////////////////////////////////////////
     -->
       <!--HOME-->
-      <div class="row width-full lightGeneric">
+      <div class="row width-full generic">
         <div class="col width-full">
-            <p id="timelineStart" class="text-center title pt-4 pb-2 mb-0">William Brayden Vaught</p>
+            <p id="timelineStart" class="text-center title pt-4 pb-2 mb-0 animate__animated animate__zoomIn">William Brayden Vaught</p>
         </div>
-        <p class="text-center fs-3 pb-3">Computer Engineer | Theatrical Technician</p>
+        <p class="text-center fs-3 pb-3 animate__animated animate__zoomIn">Computer Engineer | Theatrical Technician</p>
       </div>
-      <div class="row pb-3 lightGeneric">
+      <div class="row pb-3 generic">
         <div class="col-sm-2"></div>
         <div class="col">
-          <div class="card lightMode shadow">
-            <div class="card-body lightMode" style="border-radius: 0.45rem;">
+          <div class="card mode shadow animate__animated animate__fadeIn animate__delay-2s">
+            <div class="card-body mode" style="border-radius: 0.45rem;">
               <div class="row g-0 m-0">
                 <div class="col-sm-3 pe-0 me-0">
-                  <img src="Images/ProfilePicture.JPG" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;">
+                  <div class="image">
+                  <img src="Images/ProfilePicture.JPG" alt="Profile Picture" width="99%" style="border-radius: 0.30rem;">
+                  <div class="centered">
+                    <a class="centeredText" href="https://www.linkedin.com/in/WilliamBraydenVaught" target="_blank" rel="noopener noreferrer"><i class=" fa-linkedin fab display-1 navLinkColor"></i></a></div>                  
+                  </div>
                 </div>
                 <div class="col-sm-9 ps-0 ms-0">
-                  <div class="card lightMode pe-0" style="height: 100%;">
-                    <div class="card-body pt-1 d-flex align-items-center">
+                  <div class="card mode pe-0" style="height: 100%; border-radius:0%;">
+                    <div class="card-body pt-1 pb-0 d-flex align-items-center" >
                       <p class="fs-5 mb-0">
                         I am a first-year Computer Engineering major with strong communication skills and team-working experience. I am outgoing and adept to working in high-paced environments and debugging software security risks, and I have real-world job experience in web security and development. Explore this website to learn more about my technical and professional experiences and how they can contribute to your software team. To navigate you can use one of the links below, or you can just start scrolling.
                       </p>
@@ -690,20 +684,21 @@ opacity: 0.75;
       </div>
       <div class="col-sm-2"></div>
     </div>
-    <div class="row lightGeneric pt-3">
+    <div class="row generic pt-3 animate__animated animate__fadeIn animate__delay-4s">
       <div class="col-2"></div>
       <div class="col text-center">
-      <a href="BraydenVaught.pdf" target="_blank" rel="noopener noreferrer"><button type="button" class="btn btn-outline-dark m-3">View Resume</button></a>
-      <a href="#background"><button type="button" class="btn btn-outline-dark m-3">About Me</button></a>
-      <a href="#experience"><button type="button" class="btn btn-outline-dark m-3">Explore Experience</button></a>
-      <a href="#contact"><button type="button" class="btn btn-outline-dark ms-3">Contact Me</button></a>
+      <a href="#background"><button type="button" class="btn button m-3">View Background</button></a>
+      <a href="#timeline"><button type="button" class="btn button m-3">View Timeline</button></a>
+      <a href="#experience"><button type="button" class="btn button m-3">Explore Experience</button></a>
+      <a href="#contact"><button type="button" class="btn button ms-3">Contact Me</button></a>
       </div>
       <div class="col-2"></div>
     </div>
-      <div class="row text-center lightGeneric">
-      <p class="text-center pt-4 mb-0 fs-4" style="font-family: sans-serif;">Hope for the best. Expect the worst. Life's a play. We're unrehearsed.</p>
-      <p class="text-center pt-0 pb-0 fs-5" >-Mel Brooks</p>
-      <div id="background" class="row pt-3 pb-2"></div>
+      <div class="row text-center generic">
+      <p class="text-center pt-4 mb-0 fs-4 animate__animated animate__fadeInUp animate__delay-3s" style="font-family: sans-serif;">Hope for the best. Expect the worst. Life's a play. We're unrehearsed.</p>
+      <p class="text-center pt-0 pb-0 fs-5 mb-0 animate__animated animate__fadeInUp animate__delay-5s" >-Mel Brooks</p>
+      <div id="background" class="pb-0 pt-1"></div>
+      <div class="row p-3"></div>
       <hr class="hrStuff" style="width:75%; margin:auto; ">
       </div>
     <!--
@@ -720,12 +715,12 @@ opacity: 0.75;
 //////////////////////////////////////////////////////////////////////////////////////////////////
     -->
       <!--BACKGROUND-->
-<div class="row lightGeneric py-3">
+<div class="row generic py-3 pb-0">
   <div class="col-2"></div>
   <div class="col" style="line-height:1.7;">
-    <p class="fs-1" style="text-indent: -7%;">Background</p>
-    <div class="card shadow lightMode">
-      <div class="card-body lightMode py-4">
+    <p class="fs-1 animate__animated" style="text-indent: -7%;">Background</p>
+    <div class="card shadow mode">
+      <div class="card-body mode py-4">
         <div class="row pb-3">
         <div class="col-sm-4"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/code.png" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></div>
         <div class="col-sm-4"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/lighting.png" alt="Profile Picture" width="100%" style=" border-radius: 0.30rem;"></div></div>
@@ -757,13 +752,13 @@ opacity: 0.75;
 //////////////////////////////////////////////////////////////////////////////////////////////////
     -->
     <!--TIMELINE-->  
-    <div class="row lightGeneric pt-5">
+    <div class="row generic pt-5" id="timeline">
       <hr style="width:75%; margin:auto; " class="mt-3 hrStuff">
     </div>
     <section id="timeline" class="timeline">
       <div class="container">
         <div class="timeline__wrapper">
-          <div id="timelineLine" class="timeline__progressbarLight"></div>
+          <div id="timelineLine" class="timeline__progressbar"></div>
           <div class="py-5"></div>
           <div class="timeline__block">
             <div class="timeline__block__bullet-point">
@@ -778,18 +773,7 @@ opacity: 0.75;
             </div>    
           <div class="py-5"></div>
           <div class="py-5"></div>
-          <div class="py-5"></div>
-          <div class="timeline__block">
-            <div class="timeline__block__bullet-point">
-              <span class="timeline__block__circle"></span>
-            </div>
-            <div class="timeline__block__head">
-              <h1 class="timeline__block__title">August 2003</h1>
-            </div>
-            <div class="timeline__block__body">
-              <p class="timeline__block__text">Born August 30th, 2003</p>
-            </div>
-            </div>        
+          <div class="py-5"></div>     
             <div class="py-5"></div>  
             <div class="timeline__block">
               <div class="timeline__block__bullet-point">
@@ -937,20 +921,24 @@ opacity: 0.75;
     <div class = "row">
 <hr style="margin: auto; width: 85%" class="hrStuff">
     </div>
-    <div class="row lightGeneric pt-3">
+    <div class="row generic pt-3">
       <div class="col-sm-1"></div>
       <div class="col">
       <p class="fs-1">Education</p>
-        <div class="card lightMode shadow">
-          <div class="card-body lightMode" style="max-height: fit-content;">
+        <div class="card mode shadow">
+          <div class="card-body mode pb-0" style="max-height: fit-content;">
             <div class="row">
               <div class="col-8 ps-3" style="border: none;">
                 <p class="fs-2 fw-bold mb-0">Georgia Institute of Technology&nbsp|<span class="fs-5 fw-lighter">&nbspGraduation: May 2025</span></p>
                 <p class="ps-3 pt-2 mb-0">Bachelor of Science in Computer Engineering GPA NA/4.00</p>
-                <p class="ps-3"> Threads in <a class="gatechLinkLight target="_blank" rel="noopener noreferrer" href="https://www.ece.gatech.edu/cybersecurity-thread">Cybersecurity</a> and <a class="gatechLinkLight target="_blank" rel="noopener noreferrer" href="https://www.ece.gatech.edu/distributed-system-software-design">Distributed System & Software Design</a></p>
+                <p class="ps-3"> Threads in <a class="gatechLink target="_blank" rel="noopener noreferrer" href="https://www.ece.gatech.edu/cybersecurity-thread">Cybersecurity</a> and <a class="gatechLink target="_blank" rel="noopener noreferrer" href="https://www.ece.gatech.edu/distributed-system-software-design">Distributed System & Software Design</a></p>
               </div>
               <div class="col-sm">
-                <img src="Images/TechTower.jpg" alt="Tech Tower" class="img-fluid" width="100%" style="border-radius: 0.25rem;">
+                <div class="card p-0 m-0 mode text-end">
+                  <img src="Images/TechTower.jpg" class="card-img" alt="Tech Tower">
+                    <p class="mode mb-1" style="font-size: 12px;">Image Credit: Georgia Insitute of Technology</p>
+                </div>
+                <!-- <img src="Images/TechTower.jpg" alt="Tech Tower" class="img-fluid" width="100%" style="border-radius: 0.25rem;"> -->
               </div>
             </div>
           </div>
@@ -958,29 +946,30 @@ opacity: 0.75;
       </div>
       <div class="col-sm-1"></div>
     </div>
-    <div  class="row pt-3 text-center lightGeneric">
+    <div  class="row pt-3 text-center generic">
       <p class="fs-2 pt-4 pb-3">Relevent Coursework</p>
       <div class="col d-flex justify-content-center">
-      <div class="card mb-3 me-2 lightMode shadow" style="width: 25rem;">
-        <div class="card-body lightMode">
+      <div class="card mx-3 mode shadow" style="width: 25rem;">
+        <div class="card-body mode">
           <h5 class="card-title fs-4">Digital System Design</h5>
           <hr class="pb=1 mt-0 mb-1">
           <p> Produced desired logic functions in truth-table, schematic, and algebraic forms. Understand physical implementations of digital logic. Used multiplexers and encoders to build larger digital devices. Understand digital storage and sequential logic and be able to create finite state machines. Created simple programs in assembly code.
             </p>
         </div>
       </div>
-      <div class="card lightMode mb-3 ms-2 shadow" style="width: 25rem;">
-        <div class="card-body lightMode">
+      <div class="card mode mx-3 shadow" style="width: 25rem;">
+        <div class="card-body mode">
           <h5 class="card-title fs-4">Object-Oriented Programming</h5>
           <hr class="pb=1 mt-0 mb-1">
           <p>
             Utilize object-oriented languages features like statically typed variables; encapsulation, inheritance, and polymorphism; event-driven programming principles as they apply to graphical user interface (GUI) programs; recursive definitions of algorithms and data structures; “Big-O” run time analysis of algorithms; basic algorithms for searching and sorting; and basic data structures.</p>
+            <div  id="skills"></div>
         </div>
       </div>
       </div>
     </div>
-    <div id="skills" class="row py-2 lightGeneric"></div>
-    <div class="row text-center pt-1 lightGeneric">
+    <div class="row py-2 generic"></div>
+    <div class="row text-center pt-1 generic">
       <hr style="width:90%; margin:auto; " class="hrStuff">
     </div>
     <!--
@@ -997,20 +986,20 @@ opacity: 0.75;
 //////////////////////////////////////////////////////////////////////////////////////////////////
     -->
     <!--SKILLS-->
-    <div class="row pt-4 lightGeneric">
+    <div class="row pt-4 generic">
       <div class="col">
       <p class="fs-1 ps-5 ms-5">Skills</p>
       <div class="col d-flex justify-content-center">
-        <div class="card lightMode mb-3 mx-3 shadow" style="width: 25rem; min-width: 16rem;">
-          <div class="card-body lightMode text-center">
+        <div class="card mode mb-3 mx-3 shadow" style="width: 25rem; min-width: 16rem;">
+          <div class="card-body mode text-center">
             <h5 class="card-title fs-4">Programming Languages</h5>
             <hr class="pb=1 mt-0 mb-1">
             <p class="pt-2">
               I am proficient in C# and Java with 3 years of programming experience. I am also proficient in HTML, CSS, and Javascript with 5 years of experience and a web development internship. Intermediate with database programming through SQL. Familiar with Bootstrap and JQuery libraries through their CDN implementation.</p>
           </div>
         </div>
-        <div class="card lightMode mb-3 mx-3 shadow" style="width: 25rem; min-width: 16rem;">
-          <div class="card-body lightMode">
+        <div class="card mode mb-3 mx-3 shadow" style="width: 25rem; min-width: 16rem;">
+          <div class="card-body mode">
             <h5 class="card-title fs-4 text-center">Electrical Engineering</h5>
             <hr class="pb=1 mt-0 mb-1">
             <p class="pt-2 text-center">
@@ -1018,8 +1007,8 @@ opacity: 0.75;
             </p>
           </div>
         </div>
-        <div class="card lightMode mb-3 mx-3 shadow" style="width: 25rem; min-width: 16rem;">
-          <div class="card-body lightMode">
+        <div class="card mode mb-3 mx-3 shadow" style="width: 25rem; min-width: 16rem;">
+          <div class="card-body mode">
             <h5 class="card-title fs-4 text-center">Engineering Tools</h5>
             <hr class="pb=1 mt-0 mb-1">
             <p class="pt-2 text-center">
@@ -1030,25 +1019,26 @@ opacity: 0.75;
         </div>
       </div>
     </div>
-      <div class="row pt-2 lightGeneric d-flex justify-content-center">
-        <div class="card lightMode mt-3 mx-3 shadow" style="width: 25rem; min-width: 16rem;">
-          <div class="card-body lightMode text-center">
+      <div class="row pt-2 generic d-flex justify-content-center">
+        <div class="card mode mt-3 mx-3 shadow" style="width: 25rem; min-width: 16rem;">
+          <div class="card-body mode text-center">
             <h5 class="card-title fs-4">Leadership</h5>
             <hr class="pb=1 mt-0 mb-1">
             <p class="pt-2">
               With three years of experience in Student Council as Vice President of Special Events and President, I am proficient in public speaking as well as organizing large-scale events in a managerial role with delegation and communication as the basis for organization.</div>
         </div>
-        <div class="card lightMode mt-3 mx-3 shadow" style="width: 25rem; min-width: 16rem;">
-          <div class="card-body lightMode">
+        <div class="card mode mt-3 mx-3 shadow" style="width: 25rem; min-width: 16rem;">
+          <div class="card-body mode">
             <h5 class="card-title fs-4 text-center">Collaboration</h5>
             <hr class="pb=1 mt-0 mb-1">
             <p class="pt-2 text-center">
-              I have gained valuable collaborative experience through technical theatre that I am currently compounding on at Georgia Tech. Through DramaTech (Georgia Tech’s student run theatre) I am learning to work with people of many different backgrounds in many different departments to create one cohesive product.              </p>
+              I have gained valuable collaborative experience through technical theatre that I am currently compounding on at Georgia Tech. Through DramaTech (Georgia Tech’s student run theatre) I am learning to work with people of many different backgrounds in many different departments to create one cohesive product.</p>
+              <div id="experience"></div>
           </div>
         </div>
     </div>
-    <div id="experience" class="row py-2 lightGeneric"></div>
-    <div class="row text-center pt-1 lightGeneric">
+    <div class="row py-2 generic"></div>
+    <div class="row text-center pt-1 generic">
       <hr style="width:85%; margin:auto; " class="hrStuff">
     </div>   
        <!--
@@ -1065,16 +1055,16 @@ opacity: 0.75;
 //////////////////////////////////////////////////////////////////////////////////////////////////
     -->
     <!--EXPERIENCE-->
-    <div class="row pt-4 lightGeneric">
+    <div class="row pt-4 generic">
       <div class="col">
       <p class="fs-1 ps-5 ms-5 my-0">Experience</p>
       </div>
       </div>
-      <div  class="row text-center lightGeneric">
+      <div  class="row text-center generic">
         <p class="fs-2 pb-3">Professional Experience</p>
         <div class="col d-flex justify-content-center">
-        <div class="card mb-3 mx-3 lightMode shadow" style="width: 35rem;">
-          <div class="card-body lightMode">
+        <div class="card mb-3 mx-3 mode shadow" style="width: 35rem;">
+          <div class="card-body mode">
             <h5 class="card-title fs-3" style="text-decoration: none;">ServTrax, Inc.</h5>
             <hr class="my-3">
             <p class="text-start mb-0 fs-5"><b>Role:</b> Web Development Intern</p>
@@ -1083,8 +1073,8 @@ opacity: 0.75;
             <p class="fs-5">Redesigned existing webpages and created new webpages utilizing Bootstrap, Select2, and JQuery libraries. Also utilized SQL to manage database systems for AJAX data fetching. Learned to work with code in Azure DevOps and industry standard commenting and check-in practices.</p>
           </div>
         </div>
-        <div class="card mb-3 mx-3 lightMode shadow" style="width: 35rem;">
-          <div class="card-body lightMode">
+        <div class="card mb-3 mx-3 mode shadow" style="width: 35rem;">
+          <div class="card-body mode">
             <h5 class="card-title fs-3" style="text-decoration: none;">Compliance Solutions</h5>
             <hr class="my-3">
             <p class="text-start mb-0 fs-5"><b>Role:</b> Buisness Automation Intern</p>
@@ -1095,64 +1085,65 @@ opacity: 0.75;
         </div>
         </div>
       </div>
-      <div  class="row text-center lightGeneric">
+      <div  class="row text-center generic">
         <p class="fs-2 pt-5 pb-3">Academic Experience</p>
         <div class="col d-flex justify-content-center">
-        <div class="card mb-3 mx-3 lightMode shadow" style="width: 35rem;">
-          <div class="card-body lightMode">
+        <div class="card mb-3 mx-3 mode shadow" style="width: 35rem;">
+          <div class="card-body mode">
             <h5 class="card-title fs-3" style="text-decoration: none;">Digital Hourglass</h5>
             <hr class="my-3">
             <p>Learned basics of soldering and circuitry through the development of a digital hourglass that  utilizes a gyroscope integrated circuit to determine orientation.</p>
             <div class="row pb-3">
-              <div class="col-sm-4"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/Hourglass1.JPG" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></div>
-              <div class="col-sm-4"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/Hourglass2.JPG" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></div>
-              <div class="col-sm-4"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/Hourglass3.JPG" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></div>
+              <div class="col-sm-4"><div class="shadow my-2"><img src="Images/Hourglass1.JPG" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></div>
+              <div class="col-sm-4"><div class="shadow my-2"><img src="Images/Hourglass2.JPG" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></div>
+              <div class="col-sm-4"><div class="shadow my-2"><img src="Images/Hourglass3.JPG" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></div>
               </div>
             </div>
         </div>
-        <div class="card mb-3 mx-3 lightMode shadow" style="width: 35rem;">
-          <div class="card-body lightMode">
+        <div class="card mb-3 mx-3 mode shadow" style="width: 35rem;">
+          <div class="card-body mode">
             <h5 class="card-title fs-3" style="text-decoration: none;">Finite State Machine</h5>
             <hr class="my-3">
             <p>Learned how to create a state diagram from a list of constraints and then utilize that state diagram to create digital logic to be implemented in physical hardware.</p>
             <div class="row pb-3">
-              <div class="col-sm-6"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/State1.png" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></div>
-              <div class="col-sm-6"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/State2.png" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></div>
+              <div class="col-sm-6"><div class=" shadow my-2"><img src="Images/State1.png" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></div>
+              <div class="col-sm-6"><div class=" shadow my-2"><img src="Images/State2.png" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></div>
               </div><div class="row">
-              <div class="col-sm-6"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/State3.png" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></div>
-              <div class="col-sm-6"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/State4.png" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></div>
+              <div class="col-sm-6"><div class=" shadow my-2"><img src="Images/State3.png" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></div>
+              <div class="col-sm-6"><div class=" shadow my-2"><img src="Images/State4.png" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></div>
               </div>
             </div>
         </div>
         </div>
       </div>
     <!--PROJECTS-->
-    <div class="row lightGeneric">
+    <div class="row generic">
       <div class="col-sm-1"></div>
       <div class="col">
-      <p class="fs-2 pt-5 pb-3 text-center">Personal Projects</p>
-      <div class="card mb-3 mx-3 lightMode shadow">
-        <div class="card-body lightMode">
+      <p class="fs-2 pt-5 text-center">Personal Projects</p>
+      <div class="card mb-3 mx-3 mode shadow">
+        <div class="card-body mode">
           <h5 class="card-title fs-1 text-center pt-2 pb-0 mb-0" style="text-decoration: none;">Electric Skateboard</h5>
           <hr class="my-3">
-          <p class="fs-5 p-3 pb-0" style="text-indent: 6%;">Georgia Tech has a beautiful 400 acre campus; however, whether it’s the windy weather or you are late to class, it’s vastness can be daunting. To solve this issue I designed an electric skateboard with 15 miles of range utilizing Samsung 25R 18650 batteries in a 10S2P configuration connected to two 150W motors built into the wheels of the skateboard for water-resistance. Additionally, the device charges utilizing usb-c power delivery protocols to ensure proper voltage. Overall, this project exposed me to more of the electrical side of computer engineering with batteries and motors, a topic normally overlooked when studying computer engineering. Click on one of the images below to learn more about the engineering process behind this project.</p>
-          <div class="row pb-3">
-            <div class="col-sm-4"><button class="p-0 lightMode" style="border:none; height:min-content;"type="button" data-bs-toggle="modal" data-bs-target="#skateboard1"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/Skate3.png" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></button></div>
-            <div class="col-sm-4"><button class="p-0 lightMode" style="border:none; height:min-content;"type="button" data-bs-toggle="modal" data-bs-target="#skateboard2"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/Skate2.JPG" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></button></div>
-            <div class="col-sm-4"><button class="p-0 lightMode" style="border:none; height:min-content;"type="button" data-bs-toggle="modal" data-bs-target="#skateboard3"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/Skate1.JPG" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></button></div>  
+          <p class="fs-5 px-3 py-0" style="text-indent: 6%;">Georgia Tech has a beautiful 400 acre campus; however, whether it’s the windy weather or you are late to class, it’s vastness can be daunting. To solve this issue I designed an electric skateboard with 15 miles of range utilizing Samsung 25R 18650 batteries in a 10S2P configuration connected to two 150W motors built into the wheels of the skateboard for water-resistance. Additionally, the device charges utilizing usb-c power delivery protocols to ensure proper voltage. Overall, this project exposed me to more of the electrical side of computer engineering with batteries and motors, a topic normally overlooked when studying computer engineering. Click on one of the images below to learn more about the engineering process behind this project.</p>
+          <div class="row pb-2">
+            <div class="col-sm-4"><button class="p-0 mode" style="border:none; height:min-content;"type="button" data-bs-toggle="modal" data-bs-target="#skateboard1"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/Skate3.png" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></button></div>
+            <div class="col-sm-4"><button class="p-0 mode" style="border:none; height:min-content;"type="button" data-bs-toggle="modal" data-bs-target="#skateboard2"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/Skate2.JPG" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></button></div>
+            <div class="col-sm-4"><button class="p-0 mode" style="border:none; height:min-content;"type="button" data-bs-toggle="modal" data-bs-target="#skateboard3"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/SkateboardComplete.JPG" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></button></div>  
           </div>
           </div>
+          <div id="passions"></div>
       </div>
       </div>
       <div class="col-sm-1"></div>
     </div>
-    <div id="passions" class="row text-center lightGeneric pt-4">
+    <div class="row text-center generic pt-4">
       <hr style="width:90%; margin:auto; " class="hrStuff">
     </div>    
     <!--Initial Design-->
 <div class="modal fade" id="skateboard1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content lightMode">
+    <div class="modal-content mode">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Design process and initial findings</h5>
       </div>
@@ -1168,7 +1159,7 @@ opacity: 0.75;
     <!--Engineering Process-->
     <div class="modal fade" id="skateboard2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
-        <div class="modal-content lightMode">
+        <div class="modal-content mode">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Engineering Process</h5>
           </div>
@@ -1184,7 +1175,7 @@ opacity: 0.75;
     <!--Final Thoughts-->
     <div class="modal fade" id="skateboard3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
-        <div class="modal-content lightMode">
+        <div class="modal-content mode">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Final thoughts</h5>
           </div>
@@ -1211,30 +1202,31 @@ opacity: 0.75;
 //////////////////////////////////////////////////////////////////////////////////////////////////
     -->
     <!--PASSIONS-->
-    <div class="row pt-4 pb-3 lightGeneric">
+    <div class="row pt-4 pb-3 generic">
       <div class="col">
       <p class="fs-1 ps-5 ms-5 my-0">Passions</p>
       </div>
       </div>
-    <div class="row lightGeneric">
+    <div class="row generic">
       <div class="col-sm-1"></div>
       <div class="col">
-      <div class="card mb-3 mx-3 lightMode shadow">
-        <div class="card-body lightMode">
+      <div class="card mb-3 mx-3 mode shadow">
+        <div class="card-body mode">
           <h5 class="card-title fs-1 text-center pt-2 pb-0 mb-0" style="text-decoration: none;">Technical Theatre</h5>
           <hr class="my-3">
           <p class="fs-3 text-center pt-3 pb-4 pb-0">Below are the posters for some of my most recent productions, to learn more about a specific production, click on the poster.</p>
           <div class="row pb-3">
-            <div class="col-sm-4"><button class="p-0 lightMode" style="border:none; height:min-content;"type="button" data-bs-toggle="modal" data-bs-target="#LandIModal"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/LandI.jpg" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></button></div>
-            <div class="col-sm-4"><button class="p-0 lightMode" style="border:none; height:min-content;"type="button" data-bs-toggle="modal" data-bs-target="#cirque"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/CirqueAntanda.jpg" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"  ></div></button></div>
-            <div class="col-sm-4"><button class="p-0 lightMode" style="border:none; height:min-content;"type="button" data-bs-toggle="modal" data-bs-target="#james"><div class="img-hover-zoom img-hover-zoom--xyz shadow my-2"><img src="Images/James.jpg" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></button></div>  
+            <div class="col-sm-4"><button class="p-0 mode" style="border: none; height:min-content;"type="button" data-bs-toggle="modal" data-bs-target="#LandIModal"><div class="shadow my-2 img-hover-zoom img-hover-zoom--xyz"><img src="Images/LandI.jpg" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"  ></div></button></div>
+            <div class="col-sm-4"><button class="p-0 mode" style="border:none; height:min-content;"type="button" data-bs-toggle="modal" data-bs-target="#cirque"><div class="shadow my-2 img-hover-zoom img-hover-zoom--xyz"><img src="Images/CirqueAntanda.jpg" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"  ></div></button></div>
+            <div class="col-sm-4"><button class="p-0 mode" style="border:none; height:min-content;"type="button" data-bs-toggle="modal" data-bs-target="#james"><div class="shadow my-2 img-hover-zoom img-hover-zoom--xyz"><img src="Images/James.jpg" alt="Profile Picture" width="100%" style="border-radius: 0.30rem;"></div></button></div>  
           </div>
           </div>
+          <div id="contact"></div>
       </div>
       </div>
       <div class="col-sm-1"></div>
     </div>
-    <div id="contact" class="row text-center pt-3 lightGeneric">
+    <div class="row text-center pt-3 generic">
       <hr style="width:90%; margin:auto;" class="hrStuff">
     </div>    
 
@@ -1242,7 +1234,7 @@ opacity: 0.75;
 <!--Love and Information-->
 <div class="modal fade" id="LandIModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content lightMode">
+    <div class="modal-content mode">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Love and Infomation by Caryl Churchill</h5>
       </div>
@@ -1261,7 +1253,7 @@ opacity: 0.75;
 <!--Cirque Antanda-->
 <div class="modal fade" id="cirque" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content lightMode">
+    <div class="modal-content mode">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Cirque Antanda</h5>
       </div>
@@ -1280,7 +1272,7 @@ opacity: 0.75;
 <!--James and the Giant Peach-->
 <div class="modal fade" id="james" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content lightMode">
+    <div class="modal-content mode">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">James and the Giant Peach by Timothy Allen McDonald</h5>
       </div>
@@ -1310,29 +1302,29 @@ opacity: 0.75;
 //////////////////////////////////////////////////////////////////////////////////////////////////
     -->
     <!--CONTACT ME-->
-    <div id="contactForm" class="row pt-4 lightGeneric shadow">
+    <div id="contactForm" class="row pt-4 generic shadow">
       <div class="col-sm-2"></div>
       <div class="col">
       <p class="fs-1">Contact Me</p>
-        <div class="card lightMode shadow">
-          <div class="card-body lightMode p-4" style="max-height: fit-content;">
+        <div class="card mode shadow">
+          <div class="card-body mode p-4" style="max-height: fit-content;">
                 <div>
     <form>
       <div class="mb-3">
         <label for="nameEmail" class="form-label text-start fs-5">Name</label>
-        <input type="text" class="form-control" placeholder="George P. Burdell" required id="nameEmail">
+        <input type="text" class="form-control modeForm" placeholder="George P. Burdell" required id="nameEmail">
       </div>
       <div class="mb-3">
         <label for="email" class="form-label text-start fs-5">Email Address</label>
-        <input type="email" class="form-control" Placeholder="email@address.com" required  id="email">
+        <input type="email" class="form-control modeForm" Placeholder="email@address.com" required  id="email">
       </div>
       <div class="mb-3">
         <label for="subject" class="form-label text-start fs-5">Subject</label>
-        <input type="text" class="form-control" Placeholder="Type the subject of your email here." required  id="subject">
+        <input type="text" class="form-control modeForm" Placeholder="Type the subject of your email here." required  id="subject">
       </div>
       <div class="mb-3">
         <label for="emailBody" class="form-label text-start fs-5">Email Body</label>
-        <textarea type="text" class="form-control"  required id="emailBody" rows="5">Dear Brayden Vaught,
+        <textarea type="text" class="form-control modeForm"  required id="emailBody" rows="5">Dear Brayden Vaught,
         </textarea>
       </div>
       <div class="g-recaptcha pb-3" data-sitekey="6Ldj42YdAAAAAO1YI_-fs4cT7MZgeO4U-kxczr3S"></div>
@@ -1341,8 +1333,7 @@ opacity: 0.75;
           <button id="submit" class="btn btn-primary" type="submit" value="submit" onclick="sendEmail(nameEmail.value, email.value, subject.value, emailBody.value)">Compose Email</button>
         </div>
         <div class="col-9 text-end">
-          <a href="BraydenVaught.pdf" target="_blank" rel="noopener noreferrer"><button type="button" class="btn btn-outline-dark mx-2">View Resume</button></a>
-          <a href="https://www.linkedin.com/in/WilliamBraydenVaught" target="_blank" rel="noopener noreferrer"><button type="button" class="btn btn-outline-dark mx-2">LinkedIn</button></a>
+          <a href="https://www.linkedin.com/in/WilliamBraydenVaught" target="_blank" rel="noopener noreferrer"><button type="button" class="btn button mx-2">LinkedIn</button></a>
         </div>
       </div>
     </form>
@@ -1354,12 +1345,12 @@ opacity: 0.75;
       <div class="col-sm-2"></div>
     </div>
 
-<div class="row lightGeneric py-5"></div>
-    <div id="footer" class="row pt-5 pb-4 lightModeNavbar" style="border-radius: 0%;">
+<div class="row generic py-5"></div>
+    <div id="footer" class="row pt-5 pb-4 navbarColor" style="border-radius: 0%;">
       <div class="col-5">
       <p class="ps-5">Copyright &#169 2021 Brayden Vaught - All Rights Reserved</p>
     </div><div class="col-7 text-end">
-      <p class="pe-5">This website was built by Brayden Vaught utilizing <a href="https://getbootstrap.com/" class="gatechLinkLight" target="_blank" rel="noopener noreferrer">Bootstrap</a>, <a href="https://fontawesome.com/" class="gatechLinkLight" target="_blank" rel="noopener noreferrer">Font Awesome</a>, <a href="https://jquery.com/" class="gatechLinkLight" target="_blank" rel="noopener noreferrer">jQuery</a>, and <a href="https://www.google.com/recaptcha/about/" class="gatechLinkLight" target="_blank" rel="noopener noreferrer">reCAPTCHA</a>.</p>
+      <p class="pe-5">This website was built by Brayden Vaught utilizing <a href="https://getbootstrap.com/" class="gatechLink" target="_blank" rel="noopener noreferrer">Bootstrap</a>, <a href="https://fontawesome.com/" class="gatechLink" target="_blank" rel="noopener noreferrer">Font Awesome</a>, <a href="https://jquery.com/" class="gatechLink" target="_blank" rel="noopener noreferrer">jQuery</a>, and <a href="https://www.google.com/recaptcha/about/" class="gatechLink" target="_blank" rel="noopener noreferrer">reCAPTCHA</a>.</p>
     </div></div>
     </div>
   </body>
