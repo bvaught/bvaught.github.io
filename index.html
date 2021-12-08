@@ -30,9 +30,14 @@
     }
     
     function sendEmail(name, email, subject, body){
-      if(grecaptcha.getResponse().length!=0){
+      if(grecaptcha.getResponse().length!=0&&name.length!=0&&email.length!=0&&subject.length!=0&body.length!=0){
     document.getElementById("sendEmail").innerHTML = '<a style="display: none;" id="sendIt" href="mailto:wvaught3@gatech.edu?cc='+email+'&subject='+subject+' - '+name+'&body='+body+'">Send Email</a>';
     document.getElementById("sendIt").click();
+    document.getElementById("conLink").click();
+      }else{
+        document.getElementById("errorCode").innerHTML="";
+        document.getElementById("errorCode").innerHTML="All elements forms are required. Missing required field(s).";
+        document.getElementById("conLink").click();
       }
     }
        
@@ -1309,6 +1314,7 @@ opacity: 0.75;
         <div class="card mode shadow">
           <div class="card-body mode p-4" style="max-height: fit-content;">
                 <div>
+                  <div id="errorCode" class="text-danger fs-5 fw-bold"></div>
     <form>
       <div class="mb-3">
         <label for="nameEmail" class="form-label text-start fs-5">Name</label>
