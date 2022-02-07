@@ -30,7 +30,7 @@
     }
     
     function sendEmail(name, email, subject, body){
-      if(grecaptcha.getResponse().length!=0&&name.length!=0&&email.length!=0&&subject.length!=0&body.length!=0){
+      if(grecaptcha.getResponse().length!=0&&name.length!=0&&email.length!=0&&subject.length!=0&&body.length!=0&&email!="allie.e.hearn@gmail.com"){
     document.getElementById("sendEmail").innerHTML = '<a style="display: none;" id="sendIt" href="mailto:wvaught3@gatech.edu?cc='+email+'&subject='+subject+' - '+name+'&body='+body+'">Send Email</a>';
     document.getElementById("sendIt").click();
     document.getElementById("conLink").click();
@@ -935,7 +935,7 @@ opacity: 0.75;
             <div class="row">
               <div class="col-8 ps-3" style="border: none;">
                 <p class="fs-2 fw-bold mb-0">Georgia Institute of Technology&nbsp|<span class="fs-5 fw-lighter">&nbspGraduation: May 2025</span></p>
-                <p class="ps-3 pt-2 mb-0">Bachelor of Science in Computer Engineering GPA NA/4.00</p>
+                <p class="ps-3 pt-2 mb-0">Bachelor of Science in Computer Engineering GPA 4.00/4.00</p>
                 <p class="ps-3"> Threads in <a class="gatechLink target="_blank" rel="noopener noreferrer" href="https://www.ece.gatech.edu/cybersecurity-thread">Cybersecurity</a> and <a class="gatechLink target="_blank" rel="noopener noreferrer" href="https://www.ece.gatech.edu/distributed-system-software-design">Distributed System & Software Design</a></p>
               </div>
               <div class="col-sm">
